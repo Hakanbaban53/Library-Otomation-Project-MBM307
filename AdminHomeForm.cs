@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Library_Otomation
+{
+    public partial class AdminHomeForm : Form
+    {
+        public AdminHomeForm()
+        {
+            InitializeComponent();
+        }
+
+        private void OpenChildForm(Form childForm)
+        {
+            childForm.FormClosed += (s, args) => this.Show();
+
+            this.Hide();
+            childForm.Show();
+        }
+
+        private void btnManageUsers_Click(object sender, EventArgs e)
+        {
+            ManageUsersForm manageUsersForm = new ManageUsersForm();
+            OpenChildForm(manageUsersForm);
+        }
+    }
+}
