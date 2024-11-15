@@ -16,7 +16,7 @@ namespace Library_Otomation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ManageMembersForm());
+            Application.Run(new ManageUsersForm());
         }
     }
 }

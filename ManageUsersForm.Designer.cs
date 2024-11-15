@@ -38,11 +38,9 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dateBirthTime = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtLastName = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.dataGridUsers = new System.Windows.Forms.DataGridView();
@@ -52,6 +50,9 @@
             this.chckBoxNewUser = new System.Windows.Forms.CheckBox();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.cmbRole = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -84,6 +85,7 @@
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
             this.flowLayoutPanel1.Controls.Add(this.dataGridUsers);
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel2);
+            this.flowLayoutPanel1.Controls.Add(this.checkBox1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -179,62 +181,45 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.txtAddress);
+            this.groupBox4.Controls.Add(this.cmbStatus);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox4.Location = new System.Drawing.Point(3, 65);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(259, 56);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Kullanıcı Adresi";
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtAddress.Location = new System.Drawing.Point(3, 22);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(253, 29);
-            this.txtAddress.TabIndex = 0;
+            this.groupBox4.Text = "Hesap Aktifliği";
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dateBirthTime);
+            this.groupBox3.Controls.Add(this.cmbRole);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox3.Location = new System.Drawing.Point(533, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(259, 56);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Kullanıcı Doğum Tarihi";
-            // 
-            // dateBirthTime
-            // 
-            this.dateBirthTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateBirthTime.Location = new System.Drawing.Point(3, 22);
-            this.dateBirthTime.Name = "dateBirthTime";
-            this.dateBirthTime.Size = new System.Drawing.Size(253, 26);
-            this.dateBirthTime.TabIndex = 1;
+            this.groupBox3.Text = "Kullanıcı Rolü";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtLastName);
+            this.groupBox2.Controls.Add(this.txtPassword);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox2.Location = new System.Drawing.Point(268, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(259, 56);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Kullanıcı Soyadı";
+            this.groupBox2.Text = "Kullanıcı Parolası";
             // 
-            // txtLastName
+            // txtPassword
             // 
-            this.txtLastName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtLastName.Location = new System.Drawing.Point(3, 22);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(253, 29);
-            this.txtLastName.TabIndex = 0;
+            this.txtPassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtPassword.Location = new System.Drawing.Point(3, 22);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(253, 29);
+            this.txtPassword.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -359,6 +344,34 @@
             this.btnClear.Text = "Temizle / İptal";
             this.btnClear.UseVisualStyleBackColor = true;
             // 
+            // cmbRole
+            // 
+            this.cmbRole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbRole.FormattingEnabled = true;
+            this.cmbRole.Location = new System.Drawing.Point(3, 22);
+            this.cmbRole.Name = "cmbRole";
+            this.cmbRole.Size = new System.Drawing.Size(253, 28);
+            this.cmbRole.TabIndex = 0;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(3, 410);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 17);
+            this.checkBox1.TabIndex = 6;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Location = new System.Drawing.Point(3, 22);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(253, 28);
+            this.cmbStatus.TabIndex = 1;
+            // 
             // ManageUsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,7 +390,6 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -406,15 +418,16 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtLastName;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.CheckBox chckBoxEdit;
         private System.Windows.Forms.CheckBox chckBoxNewUser;
         private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.DateTimePicker dateBirthTime;
+        private System.Windows.Forms.ComboBox cmbRole;
+        private System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
