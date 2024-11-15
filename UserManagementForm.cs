@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Library_Otomation
 {
-    public partial class ManageUsersForm : Form
+    public partial class UserManagementForm : Form
     {
-        public ManageUsersForm()
+        public UserManagementForm()
         {
             InitializeComponent();
             LoadUsers();

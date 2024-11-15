@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Library_Otomation
 {
-    public partial class LoanManagementForm : Form
+    public partial class BookManagementForm : Form
     {
-        public LoanManagementForm()
+        public BookManagementForm()
         {
             InitializeComponent();
         }

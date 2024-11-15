@@ -1,6 +1,6 @@
 ﻿namespace Library_Otomation
 {
-    partial class ManageMembersForm
+    partial class MemberManagementForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@
             this.chkNewMember = new System.Windows.Forms.CheckBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnDeleteUser = new System.Windows.Forms.Button();
+            this.btnDeleteMember = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.dataGridMembers = new System.Windows.Forms.DataGridView();
@@ -137,7 +137,7 @@
             this.tableLayoutPanel2.Controls.Add(this.btnSave, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.chkUpdateMember, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.chkNewMember, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnDeleteUser, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnDeleteMember, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnClear, 2, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 359);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -146,19 +146,19 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(797, 45);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
-            // btnDeleteUser
+            // btnDeleteMember
             // 
-            this.btnDeleteUser.AutoSize = true;
-            this.btnDeleteUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnDeleteUser.Location = new System.Drawing.Point(483, 6);
-            this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(6);
-            this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(147, 33);
-            this.btnDeleteUser.TabIndex = 2;
-            this.btnDeleteUser.Text = "Üyeyi Sil";
-            this.btnDeleteUser.UseVisualStyleBackColor = true;
-            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
+            this.btnDeleteMember.AutoSize = true;
+            this.btnDeleteMember.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDeleteMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnDeleteMember.Location = new System.Drawing.Point(483, 6);
+            this.btnDeleteMember.Margin = new System.Windows.Forms.Padding(6);
+            this.btnDeleteMember.Name = "btnDeleteMember";
+            this.btnDeleteMember.Size = new System.Drawing.Size(147, 33);
+            this.btnDeleteMember.TabIndex = 2;
+            this.btnDeleteMember.Text = "Üyeyi Sil";
+            this.btnDeleteMember.UseVisualStyleBackColor = true;
+            this.btnDeleteMember.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
             // groupBox6
             // 
@@ -401,7 +401,7 @@
         private System.Windows.Forms.CheckBox chkNewMember;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button btnDeleteUser;
+        private System.Windows.Forms.Button btnDeleteMember;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.DataGridView dataGridMembers;

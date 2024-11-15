@@ -31,12 +31,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnManageAcoount = new System.Windows.Forms.Button();
+            this.btnBookBooking = new System.Windows.Forms.Button();
+            this.btnMyFine = new System.Windows.Forms.Button();
+            this.btnMyLoans = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnGetHelp = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,12 +64,12 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.button7, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button5, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button4, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.button6, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnManageAcoount, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnBookBooking, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnMyFine, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnMyLoans, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnLogOut, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnGetHelp, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 100);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -81,89 +81,89 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 350);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // button7
+            // btnManageAcoount
             // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnManageAcoount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button7.Location = new System.Drawing.Point(420, 136);
-            this.button7.Margin = new System.Windows.Forms.Padding(20);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(360, 76);
-            this.button7.TabIndex = 11;
-            this.button7.Text = "Hesap Yönetimi";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnManageAcoount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnManageAcoount.Location = new System.Drawing.Point(420, 136);
+            this.btnManageAcoount.Margin = new System.Windows.Forms.Padding(20);
+            this.btnManageAcoount.Name = "btnManageAcoount";
+            this.btnManageAcoount.Size = new System.Drawing.Size(360, 76);
+            this.btnManageAcoount.TabIndex = 11;
+            this.btnManageAcoount.Text = "Hesap Yönetimi";
+            this.btnManageAcoount.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnBookBooking
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnBookBooking.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(20, 136);
-            this.button1.Margin = new System.Windows.Forms.Padding(20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(360, 76);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Kitap Ayırtma";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBookBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnBookBooking.Location = new System.Drawing.Point(20, 136);
+            this.btnBookBooking.Margin = new System.Windows.Forms.Padding(20);
+            this.btnBookBooking.Name = "btnBookBooking";
+            this.btnBookBooking.Size = new System.Drawing.Size(360, 76);
+            this.btnBookBooking.TabIndex = 10;
+            this.btnBookBooking.Text = "Kitap Ayırtma";
+            this.btnBookBooking.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnMyFine
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnMyFine.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button5.Location = new System.Drawing.Point(420, 20);
-            this.button5.Margin = new System.Windows.Forms.Padding(20);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(360, 76);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Kitap Geciktirme Borçlarım";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnMyFine.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnMyFine.Location = new System.Drawing.Point(420, 20);
+            this.btnMyFine.Margin = new System.Windows.Forms.Padding(20);
+            this.btnMyFine.Name = "btnMyFine";
+            this.btnMyFine.Size = new System.Drawing.Size(360, 76);
+            this.btnMyFine.TabIndex = 4;
+            this.btnMyFine.Text = "Kitap Geciktirme Borçlarım";
+            this.btnMyFine.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnMyLoans
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnMyLoans.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button4.Location = new System.Drawing.Point(20, 20);
-            this.button4.Margin = new System.Windows.Forms.Padding(20);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(360, 76);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Ödünç Aldığım Kitaplar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnMyLoans.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnMyLoans.Location = new System.Drawing.Point(20, 20);
+            this.btnMyLoans.Margin = new System.Windows.Forms.Padding(20);
+            this.btnMyLoans.Name = "btnMyLoans";
+            this.btnMyLoans.Size = new System.Drawing.Size(360, 76);
+            this.btnMyLoans.TabIndex = 3;
+            this.btnMyLoans.Text = "Ödünç Aldığım Kitaplar";
+            this.btnMyLoans.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnLogOut
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button3.Location = new System.Drawing.Point(420, 252);
-            this.button3.Margin = new System.Windows.Forms.Padding(20);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(360, 78);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Çıkış Yap";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLogOut.Location = new System.Drawing.Point(420, 252);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(20);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(360, 78);
+            this.btnLogOut.TabIndex = 8;
+            this.btnLogOut.Text = "Çıkış Yap";
+            this.btnLogOut.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnGetHelp
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnGetHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button6.Location = new System.Drawing.Point(20, 252);
-            this.button6.Margin = new System.Windows.Forms.Padding(20);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(360, 78);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "Destek";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnGetHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnGetHelp.Location = new System.Drawing.Point(20, 252);
+            this.btnGetHelp.Margin = new System.Windows.Forms.Padding(20);
+            this.btnGetHelp.Name = "btnGetHelp";
+            this.btnGetHelp.Size = new System.Drawing.Size(360, 78);
+            this.btnGetHelp.TabIndex = 9;
+            this.btnGetHelp.Text = "Destek";
+            this.btnGetHelp.UseVisualStyleBackColor = true;
             // 
             // MemberHomeForm
             // 
@@ -184,11 +184,11 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnManageAcoount;
+        private System.Windows.Forms.Button btnBookBooking;
+        private System.Windows.Forms.Button btnMyFine;
+        private System.Windows.Forms.Button btnMyLoans;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button btnGetHelp;
     }
 }

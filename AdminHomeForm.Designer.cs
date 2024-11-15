@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnManageLoans = new System.Windows.Forms.Button();
+            this.btnManageBooks = new System.Windows.Forms.Button();
+            this.btnManageMembers = new System.Windows.Forms.Button();
             this.btnManageUsers = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnReportsandSystenLogs = new System.Windows.Forms.Button();
+            this.btnManageFine = new System.Windows.Forms.Button();
+            this.btnManageSystem = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,14 +45,14 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.button7, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.button5, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button4, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnManageSystem, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnManageFine, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnManageLoans, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnManageBooks, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnManageMembers, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnManageUsers, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.button6, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnLogOut, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnReportsandSystenLogs, 0, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -64,47 +64,47 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // button5
+            // btnManageLoans
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnManageLoans.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button5.Location = new System.Drawing.Point(420, 132);
-            this.button5.Margin = new System.Windows.Forms.Padding(20);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(360, 72);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Ödünç Alınan Kitapları Yönet";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnManageLoans.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnManageLoans.Location = new System.Drawing.Point(420, 132);
+            this.btnManageLoans.Margin = new System.Windows.Forms.Padding(20);
+            this.btnManageLoans.Name = "btnManageLoans";
+            this.btnManageLoans.Size = new System.Drawing.Size(360, 72);
+            this.btnManageLoans.TabIndex = 4;
+            this.btnManageLoans.Text = "Ödünç Alınan Kitapları Yönet";
+            this.btnManageLoans.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnManageBooks
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnManageBooks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button4.Location = new System.Drawing.Point(20, 132);
-            this.button4.Margin = new System.Windows.Forms.Padding(20);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(360, 72);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Kitapları Yönet";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnManageBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnManageBooks.Location = new System.Drawing.Point(20, 132);
+            this.btnManageBooks.Margin = new System.Windows.Forms.Padding(20);
+            this.btnManageBooks.Name = "btnManageBooks";
+            this.btnManageBooks.Size = new System.Drawing.Size(360, 72);
+            this.btnManageBooks.TabIndex = 3;
+            this.btnManageBooks.Text = "Kitapları Yönet";
+            this.btnManageBooks.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnManageMembers
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnManageMembers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(420, 20);
-            this.button2.Margin = new System.Windows.Forms.Padding(20);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(360, 72);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Üyeleri Yönet";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnManageMembers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnManageMembers.Location = new System.Drawing.Point(420, 20);
+            this.btnManageMembers.Margin = new System.Windows.Forms.Padding(20);
+            this.btnManageMembers.Name = "btnManageMembers";
+            this.btnManageMembers.Size = new System.Drawing.Size(360, 72);
+            this.btnManageMembers.TabIndex = 1;
+            this.btnManageMembers.Text = "Üyeleri Yönet";
+            this.btnManageMembers.UseVisualStyleBackColor = true;
             // 
             // btnManageUsers
             // 
@@ -121,61 +121,61 @@
             this.btnManageUsers.UseVisualStyleBackColor = true;
             this.btnManageUsers.Click += new System.EventHandler(this.btnManageUsers_Click);
             // 
-            // button3
+            // btnLogOut
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button3.Location = new System.Drawing.Point(420, 356);
-            this.button3.Margin = new System.Windows.Forms.Padding(20);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(360, 74);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Çıkış Yap";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLogOut.Location = new System.Drawing.Point(420, 356);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(20);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(360, 74);
+            this.btnLogOut.TabIndex = 8;
+            this.btnLogOut.Text = "Çıkış Yap";
+            this.btnLogOut.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnReportsandSystenLogs
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnReportsandSystenLogs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button6.Location = new System.Drawing.Point(20, 356);
-            this.button6.Margin = new System.Windows.Forms.Padding(20);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(360, 74);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "Raporlar ve Sistem Kayıtları";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnReportsandSystenLogs.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnReportsandSystenLogs.Location = new System.Drawing.Point(20, 356);
+            this.btnReportsandSystenLogs.Margin = new System.Windows.Forms.Padding(20);
+            this.btnReportsandSystenLogs.Name = "btnReportsandSystenLogs";
+            this.btnReportsandSystenLogs.Size = new System.Drawing.Size(360, 74);
+            this.btnReportsandSystenLogs.TabIndex = 9;
+            this.btnReportsandSystenLogs.Text = "Raporlar ve Sistem Kayıtları";
+            this.btnReportsandSystenLogs.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnManageFine
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnManageFine.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(20, 244);
-            this.button1.Margin = new System.Windows.Forms.Padding(20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(360, 72);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Kitap Gecikme Borçları";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnManageFine.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnManageFine.Location = new System.Drawing.Point(20, 244);
+            this.btnManageFine.Margin = new System.Windows.Forms.Padding(20);
+            this.btnManageFine.Name = "btnManageFine";
+            this.btnManageFine.Size = new System.Drawing.Size(360, 72);
+            this.btnManageFine.TabIndex = 10;
+            this.btnManageFine.Text = "Kitap Gecikme Borçları";
+            this.btnManageFine.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btnManageSystem
             // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnManageSystem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button7.Location = new System.Drawing.Point(420, 244);
-            this.button7.Margin = new System.Windows.Forms.Padding(20);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(360, 72);
-            this.button7.TabIndex = 11;
-            this.button7.Text = "Sistem Yönetimi";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnManageSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnManageSystem.Location = new System.Drawing.Point(420, 244);
+            this.btnManageSystem.Margin = new System.Windows.Forms.Padding(20);
+            this.btnManageSystem.Name = "btnManageSystem";
+            this.btnManageSystem.Size = new System.Drawing.Size(360, 72);
+            this.btnManageSystem.TabIndex = 11;
+            this.btnManageSystem.Text = "Sistem Yönetimi";
+            this.btnManageSystem.UseVisualStyleBackColor = true;
             // 
             // AdminHomeForm
             // 
@@ -193,13 +193,13 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnManageLoans;
+        private System.Windows.Forms.Button btnManageBooks;
+        private System.Windows.Forms.Button btnManageMembers;
         private System.Windows.Forms.Button btnManageUsers;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button btnReportsandSystenLogs;
+        private System.Windows.Forms.Button btnManageFine;
+        private System.Windows.Forms.Button btnManageSystem;
     }
 }

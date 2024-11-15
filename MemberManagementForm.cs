@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Library_Otomation
 {
-    public partial class ManageMembersForm : Form
+    public partial class MemberManagementForm : Form
     {
         int selectedMemberID = -1;
-        public ManageMembersForm()
+        public MemberManagementForm()
         {
             InitializeComponent();
             LoadMembers();

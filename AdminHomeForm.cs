@@ -27,7 +27,7 @@ namespace Library_Otomation
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
-            ManageUsersForm manageUsersForm = new ManageUsersForm();
+            UserManagementForm manageUsersForm = new UserManagementForm();
             OpenChildForm(manageUsersForm);
         }
     }
