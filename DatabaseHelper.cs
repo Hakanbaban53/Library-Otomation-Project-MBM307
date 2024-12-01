@@ -23,17 +23,18 @@ namespace Library_Otomation
         {
             return new SqlConnection(connectionString);
         }
-
-        public int ExecuteNonQuery(string storedProcedure, SqlParameter[] parameters)
+        public int ExecuteNonQuery(string commandText, SqlParameter[] parameters = null, bool isStoredProcedure = true)
         {
             using (SqlConnection conn = GetConnection())
             {
                 conn.Open();
-                using (SqlCommand cmd = new SqlCommand(storedProcedure, conn))
+                using (SqlCommand cmd = new SqlCommand(commandText, conn))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    // Set CommandType based on the parameter
+                    cmd.CommandType = isStoredProcedure ? CommandType.StoredProcedure : CommandType.Text;
                     if (parameters != null)
                         cmd.Parameters.AddRange(parameters);
+
                     return cmd.ExecuteNonQuery();
                 }
             }

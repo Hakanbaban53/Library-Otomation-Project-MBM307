@@ -30,5 +30,35 @@ namespace Library_Otomation
             UserManagementForm manageUsersForm = new UserManagementForm();
             OpenChildForm(manageUsersForm);
         }
+
+        private void btnReportsandSystenLogs_Click(object sender, EventArgs e)
+        {
+            ReportsForm reportsForm = new ReportsForm();
+            OpenChildForm(reportsForm);
+        }
+
+        private void btnManageSystem_Click(object sender, EventArgs e)
+        {
+            SystemMaintenanceForm systemMaintenanceForm = new SystemMaintenanceForm();
+            OpenChildForm(systemMaintenanceForm);
+        }
+
+        private void btnManageMembers_Click(object sender, EventArgs e)
+        {
+            MemberManagementForm memberManagementForm = new MemberManagementForm();
+            OpenChildForm(memberManagementForm);
+        }
+
+        private void btnManageBooks_Click(object sender, EventArgs e)
+        {
+            BookManagementForm bookManagementForm = new BookManagementForm();
+            OpenChildForm(bookManagementForm);
+        }
+
+        private void btnManageLoans_Click(object sender, EventArgs e)
+        {
+            LoanManagementForm loanManagementForm = new LoanManagementForm();
+            OpenChildForm(loanManagementForm);
+        }
     }
 }

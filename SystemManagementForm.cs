@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Library_Otomation
 {
-    public partial class LoanManagementForm : Form
+    public partial class SystemManagementForm : Form
     {
-        public LoanManagementForm()
+        public SystemManagementForm()
         {
             InitializeComponent();
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

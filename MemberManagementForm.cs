@@ -67,13 +67,19 @@ namespace Library_Otomation
 
         private void dataGridMembers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            selectedMemberID = (int)dataGridMembers.Rows[e.RowIndex].Cells[0].Value;
-            txtFirstName.Text = dataGridMembers.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtLastName.Text = dataGridMembers.Rows[e.RowIndex].Cells[2].Value.ToString();
-            dateBirthTime.Value = (DateTime)dataGridMembers.Rows[e.RowIndex].Cells[3].Value;
-            txtAddress.Text = dataGridMembers.Rows[e.RowIndex].Cells[4].Value.ToString();
-            txtPhone.Text = dataGridMembers.Rows[e.RowIndex].Cells[5].Value.ToString();
-            txtEmail.Text = dataGridMembers.Rows[e.RowIndex].Cells[6].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridMembers.Rows[e.RowIndex];
+                selectedMemberID = (int)row.Cells["MemberID"].Value;
+                txtFirstName.Text = row.Cells["FirstName"].Value.ToString();
+                txtLastName.Text = row.Cells["LastName"].Value.ToString();
+                dateBirthTime.Value = (DateTime)row.Cells["DateOfBirth"].Value;
+                txtAddress.Text = row.Cells["Address"].Value.ToString();
+                txtPhone.Text = row.Cells["Phone"].Value.ToString();
+                txtEmail.Text = row.Cells["Email"].Value.ToString();
+            }
+            UpdateUIState();
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)

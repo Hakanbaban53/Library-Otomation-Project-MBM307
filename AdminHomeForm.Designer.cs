@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnManageSystem = new System.Windows.Forms.Button();
+            this.btnManageFine = new System.Windows.Forms.Button();
             this.btnManageLoans = new System.Windows.Forms.Button();
             this.btnManageBooks = new System.Windows.Forms.Button();
             this.btnManageMembers = new System.Windows.Forms.Button();
             this.btnManageUsers = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnReportsandSystenLogs = new System.Windows.Forms.Button();
-            this.btnManageFine = new System.Windows.Forms.Button();
-            this.btnManageSystem = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,35 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
+            // btnManageSystem
+            // 
+            this.btnManageSystem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnManageSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnManageSystem.Location = new System.Drawing.Point(420, 244);
+            this.btnManageSystem.Margin = new System.Windows.Forms.Padding(20);
+            this.btnManageSystem.Name = "btnManageSystem";
+            this.btnManageSystem.Size = new System.Drawing.Size(360, 72);
+            this.btnManageSystem.TabIndex = 11;
+            this.btnManageSystem.Text = "Sistem Yönetimi";
+            this.btnManageSystem.UseVisualStyleBackColor = true;
+            this.btnManageSystem.Click += new System.EventHandler(this.btnManageSystem_Click);
+            // 
+            // btnManageFine
+            // 
+            this.btnManageFine.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnManageFine.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnManageFine.Location = new System.Drawing.Point(20, 244);
+            this.btnManageFine.Margin = new System.Windows.Forms.Padding(20);
+            this.btnManageFine.Name = "btnManageFine";
+            this.btnManageFine.Size = new System.Drawing.Size(360, 72);
+            this.btnManageFine.TabIndex = 10;
+            this.btnManageFine.Text = "Kitap Gecikme Borçları";
+            this.btnManageFine.UseVisualStyleBackColor = true;
+            // 
             // btnManageLoans
             // 
             this.btnManageLoans.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -77,6 +106,7 @@
             this.btnManageLoans.TabIndex = 4;
             this.btnManageLoans.Text = "Ödünç Alınan Kitapları Yönet";
             this.btnManageLoans.UseVisualStyleBackColor = true;
+            this.btnManageLoans.Click += new System.EventHandler(this.btnManageLoans_Click);
             // 
             // btnManageBooks
             // 
@@ -91,6 +121,7 @@
             this.btnManageBooks.TabIndex = 3;
             this.btnManageBooks.Text = "Kitapları Yönet";
             this.btnManageBooks.UseVisualStyleBackColor = true;
+            this.btnManageBooks.Click += new System.EventHandler(this.btnManageBooks_Click);
             // 
             // btnManageMembers
             // 
@@ -105,6 +136,7 @@
             this.btnManageMembers.TabIndex = 1;
             this.btnManageMembers.Text = "Üyeleri Yönet";
             this.btnManageMembers.UseVisualStyleBackColor = true;
+            this.btnManageMembers.Click += new System.EventHandler(this.btnManageMembers_Click);
             // 
             // btnManageUsers
             // 
@@ -148,34 +180,7 @@
             this.btnReportsandSystenLogs.TabIndex = 9;
             this.btnReportsandSystenLogs.Text = "Raporlar ve Sistem Kayıtları";
             this.btnReportsandSystenLogs.UseVisualStyleBackColor = true;
-            // 
-            // btnManageFine
-            // 
-            this.btnManageFine.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnManageFine.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnManageFine.Location = new System.Drawing.Point(20, 244);
-            this.btnManageFine.Margin = new System.Windows.Forms.Padding(20);
-            this.btnManageFine.Name = "btnManageFine";
-            this.btnManageFine.Size = new System.Drawing.Size(360, 72);
-            this.btnManageFine.TabIndex = 10;
-            this.btnManageFine.Text = "Kitap Gecikme Borçları";
-            this.btnManageFine.UseVisualStyleBackColor = true;
-            // 
-            // btnManageSystem
-            // 
-            this.btnManageSystem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnManageSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnManageSystem.Location = new System.Drawing.Point(420, 244);
-            this.btnManageSystem.Margin = new System.Windows.Forms.Padding(20);
-            this.btnManageSystem.Name = "btnManageSystem";
-            this.btnManageSystem.Size = new System.Drawing.Size(360, 72);
-            this.btnManageSystem.TabIndex = 11;
-            this.btnManageSystem.Text = "Sistem Yönetimi";
-            this.btnManageSystem.UseVisualStyleBackColor = true;
+            this.btnReportsandSystenLogs.Click += new System.EventHandler(this.btnReportsandSystenLogs_Click);
             // 
             // AdminHomeForm
             // 
