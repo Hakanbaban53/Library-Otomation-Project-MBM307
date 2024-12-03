@@ -135,46 +135,13 @@ namespace Library_Otomation
             }
         }
 
-        private void btnDeleteUser_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (selectedMemberID == 0)
-                {
-                    throw new Exception("Lütfen silmek istediğiniz üyeyi seçin.");
-                }
-
-                int memberId = selectedMemberID;
-                string memberName = txtFirstName.Text + " " +
-                                    txtLastName.Text;
-
-                DialogResult dialogResult = MessageBox.Show($"{memberName} adlı üyeyi gerçekten silmek istiyor musunuz?", "Üye Silme", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    DatabaseHelper db = new DatabaseHelper();
-                    SqlParameter[] parameters = new SqlParameter[]
-                    {
-                            new SqlParameter("@MemberID", memberId)
-                    };
-
-                    db.ExecuteNonQuery("DeleteMember", parameters);
-                    LoadMembers();
-                    clearFields();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void chkNewMember_CheckedChanged(object sender, EventArgs e)
         {
             if (chkNewMember.Checked)
             {
                 chkUpdateMember.Checked = false;
                 dataGridMembers.ClearSelection();
-                selectedMemberID = 0;
+                selectedMemberID = -1;
                 clearFields();
             }
             UpdateUIState();
@@ -216,5 +183,39 @@ namespace Library_Otomation
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnDeleteMember_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (selectedMemberID == 0)
+                {
+                    throw new Exception("Lütfen silmek istediğiniz üyeyi seçin.");
+                }
+
+                int memberId = selectedMemberID;
+                string memberName = txtFirstName.Text + " " +
+                                    txtLastName.Text;
+
+                DialogResult dialogResult = MessageBox.Show($"{memberName} adlı üyeyi gerçekten silmek istiyor musunuz?", "Üye Silme", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    DatabaseHelper db = new DatabaseHelper();
+                    SqlParameter[] parameters = new SqlParameter[]
+                    {
+                            new SqlParameter("@MemberID", memberId)
+                    };
+
+                    db.ExecuteNonQuery("DeleteMember", parameters);
+                    LoadMembers();
+                    clearFields();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }
