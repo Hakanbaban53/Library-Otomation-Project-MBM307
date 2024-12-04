@@ -12,53 +12,56 @@ namespace Library_Otomation
 {
     public partial class AdminHomeForm : Form
     {
-        public AdminHomeForm()
+        public AdminHomeForm(string username)
         {
             InitializeComponent();
-        }
-
-        private void OpenChildForm(Form childForm)
-        {
-            childForm.FormClosed += (s, args) => this.Show();
-
-            this.Hide();
-            childForm.Show();
         }
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
             UserManagementForm manageUsersForm = new UserManagementForm();
-            OpenChildForm(manageUsersForm);
+            FormHelper.Navigate(manageUsersForm);
         }
 
         private void btnReportsandSystenLogs_Click(object sender, EventArgs e)
         {
             ReportsForm reportsForm = new ReportsForm();
-            OpenChildForm(reportsForm);
+            FormHelper.Navigate(reportsForm);
         }
 
         private void btnManageSystem_Click(object sender, EventArgs e)
         {
             SystemMaintenanceForm systemMaintenanceForm = new SystemMaintenanceForm();
-            OpenChildForm(systemMaintenanceForm);
+            FormHelper.Navigate(systemMaintenanceForm);
         }
 
         private void btnManageMembers_Click(object sender, EventArgs e)
         {
             MemberManagementForm memberManagementForm = new MemberManagementForm();
-            OpenChildForm(memberManagementForm);
+            FormHelper.Navigate(memberManagementForm);
         }
 
         private void btnManageBooks_Click(object sender, EventArgs e)
         {
             BookManagementForm bookManagementForm = new BookManagementForm();
-            OpenChildForm(bookManagementForm);
+            FormHelper.Navigate(bookManagementForm);
         }
 
         private void btnManageLoans_Click(object sender, EventArgs e)
         {
             LoanManagementForm loanManagementForm = new LoanManagementForm();
-            OpenChildForm(loanManagementForm);
+            FormHelper.Navigate(loanManagementForm);
+        }
+
+        private void btnManageFine_Click(object sender, EventArgs e)
+        {
+            ManageFinesForm manageFinesForm = new ManageFinesForm();
+            FormHelper.Navigate(manageFinesForm);
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            FormHelper.Logout();
         }
     }
 }

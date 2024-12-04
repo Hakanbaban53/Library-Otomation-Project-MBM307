@@ -42,9 +42,8 @@ namespace Library_Otomation
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormHelper.NavigateBack();
         }
-
         private void checkFields()
         {
             if (string.IsNullOrWhiteSpace(txtFirstName.Text) || string.IsNullOrWhiteSpace(txtLastName.Text) ||
@@ -65,7 +64,7 @@ namespace Library_Otomation
             }
         }
 
-        private void dataGridMembers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridMembers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -131,7 +130,7 @@ namespace Library_Otomation
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -180,7 +179,7 @@ namespace Library_Otomation
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -188,7 +187,7 @@ namespace Library_Otomation
         {
             try
             {
-                if (selectedMemberID == 0)
+                if (selectedMemberID == -1)
                 {
                     throw new Exception("Lütfen silmek istediğiniz üyeyi seçin.");
                 }
@@ -197,7 +196,7 @@ namespace Library_Otomation
                 string memberName = txtFirstName.Text + " " +
                                     txtLastName.Text;
 
-                DialogResult dialogResult = MessageBox.Show($"{memberName} adlı üyeyi gerçekten silmek istiyor musunuz?", "Üye Silme", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show($"{memberName} adlı üyeyi gerçekten silmek istiyor musunuz?", "Üye Silme", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
                     DatabaseHelper db = new DatabaseHelper();
@@ -213,7 +212,7 @@ namespace Library_Otomation
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

@@ -12,7 +12,8 @@ using System.Windows.Forms;
 namespace Library_Otomation
 {
     public partial class LoanManagementForm : Form
-    {
+    { 
+        int LoanID = -1;
         public LoanManagementForm()
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace Library_Otomation
         private void LoadBooks()
         {
             DatabaseHelper db = new DatabaseHelper();
-            DataTable books = db.ExecuteQuery("SELECT BookID, Title, Author FROM Books WHERE BookID NOT IN (SELECT BookID FROM Loans WHERE ReturnDate IS NULL)", null, false);
+            DataTable books = db.ExecuteQuery("SELECT * FROM ViewAvailableBooks", null, false);
             dataGridBooks.DataSource = books;
         }
 
@@ -46,15 +47,32 @@ namespace Library_Otomation
             dataGridLoans.DataSource = loans;
         }
 
+        private bool IsBookAvailable(int bookID)
+        {
+            DatabaseHelper db = new DatabaseHelper();
+            SqlParameter[] parameters = { new SqlParameter("@BookID", bookID) };
+            DataTable result = db.ExecuteQuery("SELECT dbo.IsBookAvailable(@BookID) AS IsAvailable", parameters, false);
+            return Convert.ToBoolean(result.Rows[0]["IsAvailable"]);
+        }
 
-
+        private bool IsLoanValid(int loanID)
+        {
+            foreach (DataGridViewRow row in dataGridLoans.Rows)
+            {
+                if ((int)row.Cells["LoanID"].Value == loanID)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormHelper.NavigateBack();
         }
 
-        private void dataGridUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridUsers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -62,7 +80,7 @@ namespace Library_Otomation
             }
         }
 
-        private void dataGridBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridBooks_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -84,6 +102,12 @@ namespace Library_Otomation
                 DateTime loanDate = dtpLoanDate.Value;
                 DateTime dueDate = dtpDueDate.Value;
 
+                if (!IsBookAvailable(bookID))
+                {
+                    MessageBox.Show("Seçilen kitap ödünç vermek için mevcut değil.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 DatabaseHelper db = new DatabaseHelper();
                 SqlParameter[] parameters = {
                     new SqlParameter("@BookID", bookID),
@@ -93,53 +117,64 @@ namespace Library_Otomation
                 };
 
                 db.ExecuteNonQuery("LoanBook", parameters);
-                MessageBox.Show("Loan issued successfully!", "Success");
+                MessageBox.Show("Kitap başarılı bir şeklide ödünç verildi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtBookID.Clear();
                 txtMemberID.Clear();
                 refreshTables();
             }
             catch (FormatException)
             {
-                MessageBox.Show("Please enter valid numeric values for Book ID and Member ID.", "Format Error");
+                MessageBox.Show("Lütfen geçerli bir Book ID ve Member ID giriniz", "Format Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error");
+                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void dataGridLoans_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void dataGridLoans_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-                if (e.RowIndex >= 0)
-                {
-                    txtLoanID.Text = dataGridLoans.Rows[e.RowIndex].Cells["BookID"].Value.ToString();
-                }
-            
+            if (e.RowIndex >= 0)
+            {
+                LoanID = (int)dataGridLoans.Rows[e.RowIndex].Cells["LoanID"].Value;
+                txtLoanID.Text = LoanID.ToString();
+            }
+            else
+            {
+                LoanID = -1;
+                txtLoanID.Clear();
+            }
+
         }
         private void btnReturnBook_Click(object sender, EventArgs e)
         {
             try
             {
-                    int loanID = int.Parse(txtLoanID.Text);
-                    DateTime returnDate = dtpReturnDate.Value;
+                if (LoanID == -1 || !IsLoanValid(LoanID))
+                {
+                    throw new Exception("Lütfen geçerli bir ödünç alan seçin.");
+                }
 
-                    DatabaseHelper db = new DatabaseHelper();
-                    SqlParameter[] parameters = {
-                        new SqlParameter("@LoanID", loanID),
-                        new SqlParameter("@ReturnDate", returnDate)
-                    };
+                DateTime returnDate = dtpReturnDate.Value;
 
-                    db.ExecuteNonQuery("ReturnBook", parameters);
-                    MessageBox.Show("Book returned successfully!");
-                    refreshTables();
+                DatabaseHelper db = new DatabaseHelper();
+                SqlParameter[] parameters = {
+            new SqlParameter("@LoanID", LoanID),
+            new SqlParameter("@ReturnDate", returnDate)
+        };
+
+                db.ExecuteNonQuery("ReturnBook", parameters);
+                MessageBox.Show("Kitap başarılı bir şekilde iade edildi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                refreshTables();
             }
             catch (FormatException)
             {
-                MessageBox.Show("Invalid data format. Please check the selected loan.", "Format Error");
+                MessageBox.Show("Geçersiz veri formatı. Lütfen ödünç alanı kontrol edin.", "Format Hatası");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while returning the book: {ex.Message}", "Error");
+                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata");
             }
         }
     }

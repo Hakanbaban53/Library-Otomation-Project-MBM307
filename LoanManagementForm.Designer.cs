@@ -50,16 +50,16 @@
             this.btnIssueLoan = new System.Windows.Forms.Button();
             this.btnRefreshTab1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dataGridLoans = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpReturnDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtLoanID = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.btnReturnBook = new System.Windows.Forms.Button();
             this.btnRefreshTab2 = new System.Windows.Forms.Button();
-            this.dataGridLoans = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dtpReturnDate = new System.Windows.Forms.DateTimePicker();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -77,16 +77,17 @@
             this.groupBox12.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridLoans)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridLoans)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -101,8 +102,8 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(4, 0, 4, 4);
-            this.splitContainer1.Size = new System.Drawing.Size(968, 450);
-            this.splitContainer1.SplitterDistance = 42;
+            this.splitContainer1.Size = new System.Drawing.Size(969, 461);
+            this.splitContainer1.SplitterDistance = 47;
             this.splitContainer1.TabIndex = 0;
             // 
             // panel1
@@ -111,8 +112,10 @@
             this.panel1.Controls.Add(this.btnBack);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.MaximumSize = new System.Drawing.Size(0, 42);
+            this.panel1.MinimumSize = new System.Drawing.Size(0, 42);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(960, 38);
+            this.panel1.Size = new System.Drawing.Size(961, 42);
             this.panel1.TabIndex = 5;
             // 
             // label1
@@ -122,7 +125,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(209, 6);
+            this.label1.Location = new System.Drawing.Point(81, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(413, 25);
             this.label1.TabIndex = 1;
@@ -135,10 +138,11 @@
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnBack.Location = new System.Drawing.Point(0, 0);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 38);
+            this.btnBack.Size = new System.Drawing.Size(75, 42);
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "Geri";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // tabControl1
             // 
@@ -149,7 +153,7 @@
             this.tabControl1.Location = new System.Drawing.Point(4, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(960, 400);
+            this.tabControl1.Size = new System.Drawing.Size(961, 406);
             this.tabControl1.TabIndex = 3;
             // 
             // tabPage1
@@ -160,7 +164,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(952, 374);
+            this.tabPage1.Size = new System.Drawing.Size(953, 380);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Kitap Ödünç Ver";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -177,28 +181,34 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(946, 199);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(947, 205);
             this.tableLayoutPanel5.TabIndex = 9;
             // 
             // dataGridBooks
             // 
+            this.dataGridBooks.AllowUserToAddRows = false;
+            this.dataGridBooks.AllowUserToDeleteRows = false;
             this.dataGridBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridBooks.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridBooks.Location = new System.Drawing.Point(382, 3);
+            this.dataGridBooks.Location = new System.Drawing.Point(383, 3);
             this.dataGridBooks.Name = "dataGridBooks";
-            this.dataGridBooks.Size = new System.Drawing.Size(561, 193);
+            this.dataGridBooks.ReadOnly = true;
+            this.dataGridBooks.Size = new System.Drawing.Size(561, 199);
             this.dataGridBooks.TabIndex = 2;
-            this.dataGridBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBooks_CellContentClick);
+            this.dataGridBooks.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBooks_CellClick);
             // 
             // dataGridUsers
             // 
+            this.dataGridUsers.AllowUserToAddRows = false;
+            this.dataGridUsers.AllowUserToDeleteRows = false;
             this.dataGridUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridUsers.Location = new System.Drawing.Point(3, 3);
             this.dataGridUsers.Name = "dataGridUsers";
-            this.dataGridUsers.Size = new System.Drawing.Size(373, 193);
+            this.dataGridUsers.ReadOnly = true;
+            this.dataGridUsers.Size = new System.Drawing.Size(374, 199);
             this.dataGridUsers.TabIndex = 1;
-            this.dataGridUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridUsers_CellContentClick);
+            this.dataGridUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridUsers_CellClick);
             // 
             // tableLayoutPanel3
             // 
@@ -216,7 +226,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(946, 124);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(947, 124);
             this.tableLayoutPanel3.TabIndex = 7;
             // 
             // groupBox8
@@ -226,7 +236,7 @@
             this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox8.Location = new System.Drawing.Point(476, 65);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(467, 56);
+            this.groupBox8.Size = new System.Drawing.Size(468, 56);
             this.groupBox8.TabIndex = 4;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "En Geç İade Tarihi";
@@ -237,7 +247,7 @@
             this.dtpDueDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.dtpDueDate.Location = new System.Drawing.Point(3, 22);
             this.dtpDueDate.Name = "dtpDueDate";
-            this.dtpDueDate.Size = new System.Drawing.Size(461, 29);
+            this.dtpDueDate.Size = new System.Drawing.Size(462, 29);
             this.dtpDueDate.TabIndex = 1;
             // 
             // groupBox9
@@ -268,7 +278,7 @@
             this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox11.Location = new System.Drawing.Point(476, 3);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(467, 56);
+            this.groupBox11.Size = new System.Drawing.Size(468, 56);
             this.groupBox11.TabIndex = 1;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Üye ID";
@@ -279,7 +289,7 @@
             this.txtMemberID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtMemberID.Location = new System.Drawing.Point(3, 22);
             this.txtMemberID.Name = "txtMemberID";
-            this.txtMemberID.Size = new System.Drawing.Size(461, 29);
+            this.txtMemberID.Size = new System.Drawing.Size(462, 29);
             this.txtMemberID.TabIndex = 0;
             // 
             // groupBox12
@@ -311,11 +321,11 @@
             this.tableLayoutPanel4.Controls.Add(this.btnIssueLoan, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnRefreshTab1, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 326);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 332);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(946, 45);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(947, 45);
             this.tableLayoutPanel4.TabIndex = 8;
             // 
             // btnIssueLoan
@@ -326,7 +336,7 @@
             this.btnIssueLoan.Location = new System.Drawing.Point(479, 6);
             this.btnIssueLoan.Margin = new System.Windows.Forms.Padding(6);
             this.btnIssueLoan.Name = "btnIssueLoan";
-            this.btnIssueLoan.Size = new System.Drawing.Size(461, 33);
+            this.btnIssueLoan.Size = new System.Drawing.Size(462, 33);
             this.btnIssueLoan.TabIndex = 4;
             this.btnIssueLoan.Text = "Ödünç Ver";
             this.btnIssueLoan.UseVisualStyleBackColor = true;
@@ -354,20 +364,23 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(952, 374);
+            this.tabPage2.Size = new System.Drawing.Size(953, 380);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Ödünç Alınan Kitap İade";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // dataGridLoans
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(952, 374);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Ayırtılan Kitaplar";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.dataGridLoans.AllowUserToAddRows = false;
+            this.dataGridLoans.AllowUserToDeleteRows = false;
+            this.dataGridLoans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridLoans.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridLoans.Location = new System.Drawing.Point(3, 65);
+            this.dataGridLoans.Name = "dataGridLoans";
+            this.dataGridLoans.ReadOnly = true;
+            this.dataGridLoans.Size = new System.Drawing.Size(947, 267);
+            this.dataGridLoans.TabIndex = 12;
+            this.dataGridLoans.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridLoans_CellClick);
             // 
             // tableLayoutPanel2
             // 
@@ -382,8 +395,29 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(946, 62);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(947, 62);
             this.tableLayoutPanel2.TabIndex = 10;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dtpReturnDate);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox1.Location = new System.Drawing.Point(476, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(468, 56);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "İade Tarihi";
+            // 
+            // dtpReturnDate
+            // 
+            this.dtpReturnDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpReturnDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.dtpReturnDate.Location = new System.Drawing.Point(3, 22);
+            this.dtpReturnDate.Name = "dtpReturnDate";
+            this.dtpReturnDate.Size = new System.Drawing.Size(462, 29);
+            this.dtpReturnDate.TabIndex = 1;
             // 
             // groupBox4
             // 
@@ -414,11 +448,11 @@
             this.tableLayoutPanel6.Controls.Add(this.btnReturnBook, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.btnRefreshTab2, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 326);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 332);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(946, 45);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(947, 45);
             this.tableLayoutPanel6.TabIndex = 11;
             // 
             // btnReturnBook
@@ -429,7 +463,7 @@
             this.btnReturnBook.Location = new System.Drawing.Point(479, 6);
             this.btnReturnBook.Margin = new System.Windows.Forms.Padding(6);
             this.btnReturnBook.Name = "btnReturnBook";
-            this.btnReturnBook.Size = new System.Drawing.Size(461, 33);
+            this.btnReturnBook.Size = new System.Drawing.Size(462, 33);
             this.btnReturnBook.TabIndex = 4;
             this.btnReturnBook.Text = "İadeyi Kabul Et";
             this.btnReturnBook.UseVisualStyleBackColor = true;
@@ -448,45 +482,25 @@
             this.btnRefreshTab2.Text = "Yenile";
             this.btnRefreshTab2.UseVisualStyleBackColor = true;
             // 
-            // dataGridLoans
+            // tabPage3
             // 
-            this.dataGridLoans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridLoans.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridLoans.Location = new System.Drawing.Point(3, 65);
-            this.dataGridLoans.Name = "dataGridLoans";
-            this.dataGridLoans.Size = new System.Drawing.Size(946, 261);
-            this.dataGridLoans.TabIndex = 12;
-            this.dataGridLoans.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridLoans_CellContentClick);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dtpReturnDate);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox1.Location = new System.Drawing.Point(476, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(467, 56);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "İade Tarihi";
-            // 
-            // dtpReturnDate
-            // 
-            this.dtpReturnDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpReturnDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.dtpReturnDate.Location = new System.Drawing.Point(3, 22);
-            this.dtpReturnDate.Name = "dtpReturnDate";
-            this.dtpReturnDate.Size = new System.Drawing.Size(461, 29);
-            this.dtpReturnDate.TabIndex = 1;
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(953, 380);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Ayırtılan Kitaplar";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // LoanManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(968, 450);
+            this.ClientSize = new System.Drawing.Size(969, 461);
             this.Controls.Add(this.splitContainer1);
+            this.MinimumSize = new System.Drawing.Size(900, 500);
             this.Name = "LoanManagementForm";
-            this.Text = "LoanManagementForm";
+            this.Text = "Ödünç Kitap Yönetimi";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -510,13 +524,13 @@
             this.tableLayoutPanel4.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridLoans)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridLoans)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

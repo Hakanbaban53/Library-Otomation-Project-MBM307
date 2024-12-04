@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.mainPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnManageSystem = new System.Windows.Forms.Button();
             this.btnManageFine = new System.Windows.Forms.Button();
@@ -37,8 +38,18 @@
             this.btnManageUsers = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnReportsandSystenLogs = new System.Windows.Forms.Button();
+            this.mainPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // mainPanel
+            // 
+            this.mainPanel.Controls.Add(this.tableLayoutPanel1);
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.Location = new System.Drawing.Point(0, 0);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(884, 461);
+            this.mainPanel.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -61,8 +72,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
-            this.tableLayoutPanel1.TabIndex = 2;
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 461);
+            this.tableLayoutPanel1.TabIndex = 3;
             // 
             // btnManageSystem
             // 
@@ -70,10 +81,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnManageSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnManageSystem.Location = new System.Drawing.Point(420, 244);
+            this.btnManageSystem.Location = new System.Drawing.Point(462, 250);
             this.btnManageSystem.Margin = new System.Windows.Forms.Padding(20);
             this.btnManageSystem.Name = "btnManageSystem";
-            this.btnManageSystem.Size = new System.Drawing.Size(360, 72);
+            this.btnManageSystem.Size = new System.Drawing.Size(402, 75);
             this.btnManageSystem.TabIndex = 11;
             this.btnManageSystem.Text = "Sistem Yönetimi";
             this.btnManageSystem.UseVisualStyleBackColor = true;
@@ -85,13 +96,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnManageFine.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnManageFine.Location = new System.Drawing.Point(20, 244);
+            this.btnManageFine.Location = new System.Drawing.Point(20, 250);
             this.btnManageFine.Margin = new System.Windows.Forms.Padding(20);
             this.btnManageFine.Name = "btnManageFine";
-            this.btnManageFine.Size = new System.Drawing.Size(360, 72);
+            this.btnManageFine.Size = new System.Drawing.Size(402, 75);
             this.btnManageFine.TabIndex = 10;
             this.btnManageFine.Text = "Kitap Gecikme Borçları";
             this.btnManageFine.UseVisualStyleBackColor = true;
+            this.btnManageFine.Click += new System.EventHandler(this.btnManageFine_Click);
             // 
             // btnManageLoans
             // 
@@ -99,10 +111,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnManageLoans.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnManageLoans.Location = new System.Drawing.Point(420, 132);
+            this.btnManageLoans.Location = new System.Drawing.Point(462, 135);
             this.btnManageLoans.Margin = new System.Windows.Forms.Padding(20);
             this.btnManageLoans.Name = "btnManageLoans";
-            this.btnManageLoans.Size = new System.Drawing.Size(360, 72);
+            this.btnManageLoans.Size = new System.Drawing.Size(402, 75);
             this.btnManageLoans.TabIndex = 4;
             this.btnManageLoans.Text = "Ödünç Alınan Kitapları Yönet";
             this.btnManageLoans.UseVisualStyleBackColor = true;
@@ -114,10 +126,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnManageBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnManageBooks.Location = new System.Drawing.Point(20, 132);
+            this.btnManageBooks.Location = new System.Drawing.Point(20, 135);
             this.btnManageBooks.Margin = new System.Windows.Forms.Padding(20);
             this.btnManageBooks.Name = "btnManageBooks";
-            this.btnManageBooks.Size = new System.Drawing.Size(360, 72);
+            this.btnManageBooks.Size = new System.Drawing.Size(402, 75);
             this.btnManageBooks.TabIndex = 3;
             this.btnManageBooks.Text = "Kitapları Yönet";
             this.btnManageBooks.UseVisualStyleBackColor = true;
@@ -129,10 +141,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnManageMembers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnManageMembers.Location = new System.Drawing.Point(420, 20);
+            this.btnManageMembers.Location = new System.Drawing.Point(462, 20);
             this.btnManageMembers.Margin = new System.Windows.Forms.Padding(20);
             this.btnManageMembers.Name = "btnManageMembers";
-            this.btnManageMembers.Size = new System.Drawing.Size(360, 72);
+            this.btnManageMembers.Size = new System.Drawing.Size(402, 75);
             this.btnManageMembers.TabIndex = 1;
             this.btnManageMembers.Text = "Üyeleri Yönet";
             this.btnManageMembers.UseVisualStyleBackColor = true;
@@ -147,7 +159,7 @@
             this.btnManageUsers.Location = new System.Drawing.Point(20, 20);
             this.btnManageUsers.Margin = new System.Windows.Forms.Padding(20);
             this.btnManageUsers.Name = "btnManageUsers";
-            this.btnManageUsers.Size = new System.Drawing.Size(360, 72);
+            this.btnManageUsers.Size = new System.Drawing.Size(402, 75);
             this.btnManageUsers.TabIndex = 0;
             this.btnManageUsers.Text = "Kullanıcıları Yönet";
             this.btnManageUsers.UseVisualStyleBackColor = true;
@@ -159,13 +171,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnLogOut.Location = new System.Drawing.Point(420, 356);
+            this.btnLogOut.Location = new System.Drawing.Point(462, 365);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(20);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(360, 74);
+            this.btnLogOut.Size = new System.Drawing.Size(402, 76);
             this.btnLogOut.TabIndex = 8;
             this.btnLogOut.Text = "Çıkış Yap";
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnReportsandSystenLogs
             // 
@@ -173,10 +186,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReportsandSystenLogs.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnReportsandSystenLogs.Location = new System.Drawing.Point(20, 356);
+            this.btnReportsandSystenLogs.Location = new System.Drawing.Point(20, 365);
             this.btnReportsandSystenLogs.Margin = new System.Windows.Forms.Padding(20);
             this.btnReportsandSystenLogs.Name = "btnReportsandSystenLogs";
-            this.btnReportsandSystenLogs.Size = new System.Drawing.Size(360, 74);
+            this.btnReportsandSystenLogs.Size = new System.Drawing.Size(402, 76);
             this.btnReportsandSystenLogs.TabIndex = 9;
             this.btnReportsandSystenLogs.Text = "Raporlar ve Sistem Kayıtları";
             this.btnReportsandSystenLogs.UseVisualStyleBackColor = true;
@@ -186,10 +199,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(884, 461);
+            this.Controls.Add(this.mainPanel);
             this.Name = "AdminHomeForm";
-            this.Text = "AdminHomeForm";
+            this.Text = "Yönetici Paneli Ana Sayfa";
+            this.mainPanel.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -197,14 +211,15 @@
 
         #endregion
 
+        private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button btnManageSystem;
+        private System.Windows.Forms.Button btnManageFine;
         private System.Windows.Forms.Button btnManageLoans;
         private System.Windows.Forms.Button btnManageBooks;
         private System.Windows.Forms.Button btnManageMembers;
         private System.Windows.Forms.Button btnManageUsers;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnReportsandSystenLogs;
-        private System.Windows.Forms.Button btnManageFine;
-        private System.Windows.Forms.Button btnManageSystem;
     }
 }

@@ -37,7 +37,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.cmbIsActive = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cmbRole = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -76,7 +76,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(4);
-            this.panel1.Size = new System.Drawing.Size(976, 484);
+            this.panel1.Size = new System.Drawing.Size(884, 461);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -84,9 +84,9 @@
             this.panel3.Controls.Add(this.dataGridUsers);
             this.panel3.Controls.Add(this.tableLayoutPanel1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(4, 42);
+            this.panel3.Location = new System.Drawing.Point(4, 46);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(968, 393);
+            this.panel3.Size = new System.Drawing.Size(876, 366);
             this.panel3.TabIndex = 10;
             // 
             // dataGridUsers
@@ -98,7 +98,7 @@
             this.dataGridUsers.Location = new System.Drawing.Point(0, 124);
             this.dataGridUsers.Name = "dataGridUsers";
             this.dataGridUsers.ReadOnly = true;
-            this.dataGridUsers.Size = new System.Drawing.Size(968, 269);
+            this.dataGridUsers.Size = new System.Drawing.Size(876, 242);
             this.dataGridUsers.TabIndex = 8;
             this.dataGridUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridUsers_CellContentClick);
             // 
@@ -121,7 +121,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(968, 124);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(876, 124);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
             // groupBox6
@@ -129,9 +129,9 @@
             this.groupBox6.Controls.Add(this.txtEmail);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox6.Location = new System.Drawing.Point(647, 65);
+            this.groupBox6.Location = new System.Drawing.Point(587, 65);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(318, 56);
+            this.groupBox6.Size = new System.Drawing.Size(286, 56);
             this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Kullanıcı Maili";
@@ -142,7 +142,7 @@
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtEmail.Location = new System.Drawing.Point(3, 22);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(312, 29);
+            this.txtEmail.Size = new System.Drawing.Size(280, 29);
             this.txtEmail.TabIndex = 0;
             // 
             // groupBox5
@@ -150,9 +150,9 @@
             this.groupBox5.Controls.Add(this.txtPhone);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox5.Location = new System.Drawing.Point(325, 65);
+            this.groupBox5.Location = new System.Drawing.Point(295, 65);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(316, 56);
+            this.groupBox5.Size = new System.Drawing.Size(286, 56);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Kullanıcı Telefon Numarası";
@@ -163,40 +163,40 @@
             this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtPhone.Location = new System.Drawing.Point(3, 22);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(310, 29);
+            this.txtPhone.Size = new System.Drawing.Size(280, 29);
             this.txtPhone.TabIndex = 0;
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.cmbStatus);
+            this.groupBox4.Controls.Add(this.cmbIsActive);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox4.Location = new System.Drawing.Point(3, 65);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(316, 56);
+            this.groupBox4.Size = new System.Drawing.Size(286, 56);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Hesap Aktifliği";
             // 
-            // cmbStatus
+            // cmbIsActive
             // 
-            this.cmbStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(3, 22);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(310, 28);
-            this.cmbStatus.Sorted = true;
-            this.cmbStatus.TabIndex = 1;
+            this.cmbIsActive.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbIsActive.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbIsActive.FormattingEnabled = true;
+            this.cmbIsActive.Location = new System.Drawing.Point(3, 22);
+            this.cmbIsActive.Name = "cmbIsActive";
+            this.cmbIsActive.Size = new System.Drawing.Size(280, 28);
+            this.cmbIsActive.Sorted = true;
+            this.cmbIsActive.TabIndex = 1;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.cmbRole);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox3.Location = new System.Drawing.Point(647, 3);
+            this.groupBox3.Location = new System.Drawing.Point(587, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(318, 56);
+            this.groupBox3.Size = new System.Drawing.Size(286, 56);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Kullanıcı Rolü";
@@ -208,7 +208,7 @@
             this.cmbRole.FormattingEnabled = true;
             this.cmbRole.Location = new System.Drawing.Point(3, 22);
             this.cmbRole.Name = "cmbRole";
-            this.cmbRole.Size = new System.Drawing.Size(312, 28);
+            this.cmbRole.Size = new System.Drawing.Size(280, 28);
             this.cmbRole.Sorted = true;
             this.cmbRole.TabIndex = 0;
             // 
@@ -217,9 +217,9 @@
             this.groupBox2.Controls.Add(this.txtPassword);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox2.Location = new System.Drawing.Point(325, 3);
+            this.groupBox2.Location = new System.Drawing.Point(295, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(316, 56);
+            this.groupBox2.Size = new System.Drawing.Size(286, 56);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kullanıcı Parolası";
@@ -230,7 +230,7 @@
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtPassword.Location = new System.Drawing.Point(3, 22);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(310, 29);
+            this.txtPassword.Size = new System.Drawing.Size(280, 29);
             this.txtPassword.TabIndex = 0;
             // 
             // groupBox1
@@ -240,7 +240,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(316, 56);
+            this.groupBox1.Size = new System.Drawing.Size(286, 56);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kullanıcı Adı";
@@ -251,7 +251,7 @@
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtUsername.Location = new System.Drawing.Point(3, 22);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(310, 29);
+            this.txtUsername.Size = new System.Drawing.Size(280, 29);
             this.txtUsername.TabIndex = 0;
             // 
             // panel2
@@ -260,8 +260,10 @@
             this.panel2.Controls.Add(this.btnBack);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(4, 4);
+            this.panel2.MaximumSize = new System.Drawing.Size(0, 42);
+            this.panel2.MinimumSize = new System.Drawing.Size(0, 42);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(968, 38);
+            this.panel2.Size = new System.Drawing.Size(876, 42);
             this.panel2.TabIndex = 6;
             // 
             // label1
@@ -271,7 +273,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(285, 6);
+            this.label1.Location = new System.Drawing.Point(81, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(228, 25);
             this.label1.TabIndex = 1;
@@ -284,7 +286,7 @@
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnBack.Location = new System.Drawing.Point(0, 0);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 38);
+            this.btnBack.Size = new System.Drawing.Size(75, 42);
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "Geri";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -304,11 +306,11 @@
             this.tableLayoutPanel2.Controls.Add(this.btnDeleteUser, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnClear, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 435);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 412);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(968, 45);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(876, 45);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
             // btnSave
@@ -316,10 +318,10 @@
             this.btnSave.AutoSize = true;
             this.btnSave.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSave.Location = new System.Drawing.Point(778, 6);
+            this.btnSave.Location = new System.Drawing.Point(706, 6);
             this.btnSave.Margin = new System.Windows.Forms.Padding(6);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(184, 33);
+            this.btnSave.Size = new System.Drawing.Size(164, 33);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Kaydet";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -334,7 +336,7 @@
             this.chkUpdateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.chkUpdateUser.Location = new System.Drawing.Point(3, 3);
             this.chkUpdateUser.Name = "chkUpdateUser";
-            this.chkUpdateUser.Size = new System.Drawing.Size(187, 39);
+            this.chkUpdateUser.Size = new System.Drawing.Size(169, 39);
             this.chkUpdateUser.TabIndex = 0;
             this.chkUpdateUser.Text = "Düzenle";
             this.chkUpdateUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -347,9 +349,9 @@
             this.chkNewUser.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
             this.chkNewUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.chkNewUser.Location = new System.Drawing.Point(196, 3);
+            this.chkNewUser.Location = new System.Drawing.Point(178, 3);
             this.chkNewUser.Name = "chkNewUser";
-            this.chkNewUser.Size = new System.Drawing.Size(187, 39);
+            this.chkNewUser.Size = new System.Drawing.Size(169, 39);
             this.chkNewUser.TabIndex = 1;
             this.chkNewUser.Text = "Yeni Kullanıcı";
             this.chkNewUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -361,10 +363,10 @@
             this.btnDeleteUser.AutoSize = true;
             this.btnDeleteUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnDeleteUser.Location = new System.Drawing.Point(585, 6);
+            this.btnDeleteUser.Location = new System.Drawing.Point(531, 6);
             this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(6);
             this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(181, 33);
+            this.btnDeleteUser.Size = new System.Drawing.Size(163, 33);
             this.btnDeleteUser.TabIndex = 2;
             this.btnDeleteUser.Text = "Kullanıcıyı Sil";
             this.btnDeleteUser.UseVisualStyleBackColor = true;
@@ -375,10 +377,10 @@
             this.btnClear.AutoSize = true;
             this.btnClear.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnClear.Location = new System.Drawing.Point(392, 6);
+            this.btnClear.Location = new System.Drawing.Point(356, 6);
             this.btnClear.Margin = new System.Windows.Forms.Padding(6);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(181, 33);
+            this.btnClear.Size = new System.Drawing.Size(163, 33);
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "Temizle / İptal";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -388,10 +390,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(976, 484);
+            this.ClientSize = new System.Drawing.Size(884, 461);
             this.Controls.Add(this.panel1);
+            this.MinimumSize = new System.Drawing.Size(900, 500);
             this.Name = "UserManagementForm";
-            this.Text = "ManageUsersForm";
+            this.Text = "Kullanıcı Yönetimi";
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -428,7 +431,7 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.ComboBox cmbIsActive;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox cmbRole;
         private System.Windows.Forms.GroupBox groupBox2;

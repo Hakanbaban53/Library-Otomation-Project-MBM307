@@ -72,16 +72,16 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.panel3);
-            this.splitContainer1.Panel1.Padding = new System.Windows.Forms.Padding(4);
+            this.splitContainer1.Panel1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 0);
             this.splitContainer1.Panel1MinSize = 42;
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(4);
+            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(4, 0, 4, 4);
             this.splitContainer1.Panel2MinSize = 50;
-            this.splitContainer1.Size = new System.Drawing.Size(800, 460);
-            this.splitContainer1.SplitterDistance = 42;
+            this.splitContainer1.Size = new System.Drawing.Size(884, 461);
+            this.splitContainer1.SplitterDistance = 46;
             this.splitContainer1.TabIndex = 0;
             // 
             // panel3
@@ -90,8 +90,10 @@
             this.panel3.Controls.Add(this.btnBack);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(4, 4);
+            this.panel3.MaximumSize = new System.Drawing.Size(0, 42);
+            this.panel3.MinimumSize = new System.Drawing.Size(0, 42);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(792, 34);
+            this.panel3.Size = new System.Drawing.Size(876, 42);
             this.panel3.TabIndex = 14;
             // 
             // label1
@@ -101,7 +103,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(244, 6);
+            this.label1.Location = new System.Drawing.Point(81, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(305, 25);
             this.label1.TabIndex = 1;
@@ -114,7 +116,7 @@
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnBack.Location = new System.Drawing.Point(0, 0);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 34);
+            this.btnBack.Size = new System.Drawing.Size(75, 42);
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "Geri";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -125,10 +127,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(4, 4);
+            this.tabControl1.Location = new System.Drawing.Point(4, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(792, 406);
+            this.tabControl1.Size = new System.Drawing.Size(876, 407);
             this.tabControl1.TabIndex = 14;
             // 
             // tabPage1
@@ -137,7 +139,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(784, 380);
+            this.tabPage1.Size = new System.Drawing.Size(868, 381);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Raporlar";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -149,7 +151,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(778, 374);
+            this.panel2.Size = new System.Drawing.Size(862, 375);
             this.panel2.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -160,11 +162,11 @@
             this.tableLayoutPanel1.Controls.Add(this.btnGenerateReport, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.cmbReportType, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 329);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 330);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(778, 45);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(862, 45);
             this.tableLayoutPanel1.TabIndex = 12;
             // 
             // btnGenerateReport
@@ -175,7 +177,7 @@
             this.btnGenerateReport.Location = new System.Drawing.Point(4, 4);
             this.btnGenerateReport.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenerateReport.Name = "btnGenerateReport";
-            this.btnGenerateReport.Size = new System.Drawing.Size(381, 37);
+            this.btnGenerateReport.Size = new System.Drawing.Size(423, 37);
             this.btnGenerateReport.TabIndex = 2;
             this.btnGenerateReport.Text = "Rapor Oluştur";
             this.btnGenerateReport.UseVisualStyleBackColor = true;
@@ -186,10 +188,10 @@
             this.cmbReportType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbReportType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.cmbReportType.FormattingEnabled = true;
-            this.cmbReportType.Location = new System.Drawing.Point(397, 8);
+            this.cmbReportType.Location = new System.Drawing.Point(439, 8);
             this.cmbReportType.Margin = new System.Windows.Forms.Padding(8);
             this.cmbReportType.Name = "cmbReportType";
-            this.cmbReportType.Size = new System.Drawing.Size(373, 28);
+            this.cmbReportType.Size = new System.Drawing.Size(415, 28);
             this.cmbReportType.Sorted = true;
             this.cmbReportType.TabIndex = 3;
             // 
@@ -199,7 +201,7 @@
             this.dataGridReports.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridReports.Location = new System.Drawing.Point(0, 0);
             this.dataGridReports.Name = "dataGridReports";
-            this.dataGridReports.Size = new System.Drawing.Size(778, 374);
+            this.dataGridReports.Size = new System.Drawing.Size(862, 375);
             this.dataGridReports.TabIndex = 1;
             // 
             // tabPage2
@@ -208,7 +210,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(784, 380);
+            this.tabPage2.Size = new System.Drawing.Size(868, 381);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Sistem Kayıtları";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -220,7 +222,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(778, 374);
+            this.panel1.Size = new System.Drawing.Size(862, 375);
             this.panel1.TabIndex = 0;
             // 
             // dataGridLogs
@@ -229,7 +231,7 @@
             this.dataGridLogs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridLogs.Location = new System.Drawing.Point(0, 0);
             this.dataGridLogs.Name = "dataGridLogs";
-            this.dataGridLogs.Size = new System.Drawing.Size(778, 324);
+            this.dataGridLogs.Size = new System.Drawing.Size(862, 325);
             this.dataGridLogs.TabIndex = 5;
             // 
             // tableLayoutPanel2
@@ -238,11 +240,11 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.btnRefreshLogs, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 324);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 325);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(778, 50);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(862, 50);
             this.tableLayoutPanel2.TabIndex = 6;
             // 
             // btnRefreshLogs
@@ -253,7 +255,7 @@
             this.btnRefreshLogs.Location = new System.Drawing.Point(8, 8);
             this.btnRefreshLogs.Margin = new System.Windows.Forms.Padding(8);
             this.btnRefreshLogs.Name = "btnRefreshLogs";
-            this.btnRefreshLogs.Size = new System.Drawing.Size(762, 34);
+            this.btnRefreshLogs.Size = new System.Drawing.Size(846, 34);
             this.btnRefreshLogs.TabIndex = 5;
             this.btnRefreshLogs.Text = "Sistem Kayıtlarını Yenile";
             this.btnRefreshLogs.UseVisualStyleBackColor = true;
@@ -263,10 +265,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 460);
+            this.ClientSize = new System.Drawing.Size(884, 461);
             this.Controls.Add(this.splitContainer1);
+            this.MinimumSize = new System.Drawing.Size(900, 500);
             this.Name = "ReportsForm";
-            this.Text = "ReportsForm";
+            this.Text = "Raporlar";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

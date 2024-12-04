@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,8 +28,8 @@ namespace Library_Otomation
         {
             cmbRole.Items.Add("Admin");
             cmbRole.Items.Add("Librarian");
-            cmbStatus.Items.Add("Active");
-            cmbStatus.Items.Add("Passive");
+            cmbIsActive.Items.Add("Aktif"); // 1
+            cmbIsActive.Items.Add("Pasif"); // 0
         }
 
         private void LoadUsers()
@@ -46,7 +47,7 @@ namespace Library_Otomation
             txtEmail.Text = "";
             txtPhone.Text = "";
             cmbRole.SelectedIndex = -1;
-            cmbStatus.SelectedIndex = -1;
+            cmbIsActive.SelectedIndex = -1;
         }
 
         private void UpdateUIState()
@@ -58,17 +59,17 @@ namespace Library_Otomation
             txtPhone.Enabled = enableFields;
             btnSave.Enabled = enableFields;
             cmbRole.Enabled = enableFields;
-            cmbStatus.Enabled = enableFields;
+            cmbIsActive.Enabled = enableFields;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormHelper.NavigateBack();
         }
 
         private void checkFiels()
         {
-            if (txtUsername.Text == "" || txtPassword.Text == "" || txtEmail.Text == "" || txtPhone.Text == "" || cmbRole.SelectedIndex == -1 || cmbStatus.SelectedIndex == -1)
+            if (txtUsername.Text == "" || txtPassword.Text == "" || txtEmail.Text == "" || txtPhone.Text == "" || cmbRole.SelectedIndex == -1 || cmbIsActive.SelectedIndex == -1)
             {
                 throw new Exception("Tüm alanlar doldurulmalıdır.");
             }
@@ -98,7 +99,7 @@ namespace Library_Otomation
                 txtEmail.Text = row.Cells["Email"].Value.ToString();
                 txtPhone.Text = row.Cells["Phone"].Value.ToString();
                 cmbRole.Text = row.Cells["Role"].Value.ToString();
-                cmbStatus.Text = row.Cells["Status"].Value.ToString();
+                cmbIsActive.Text = row.Cells["IsActive"].Value.ToString() == "1" ? "Aktif" : "Pasif" ;
             }
             UpdateUIState();
         }
@@ -112,11 +113,13 @@ namespace Library_Otomation
                 string password = txtPassword.Text;
                 string email = txtEmail.Text;
                 string phone = txtPhone.Text;
-                string role = cmbRole.Text;
-                string status = cmbStatus.Text;
+                string role = cmbRole.Text.Trim();
+                string IsActive = cmbIsActive.Text.Trim() == "Aktif" ? "1" : "0"; // Convert status to bit
 
                 DatabaseHelper db = new DatabaseHelper();
                 SqlParameter[] parameters;
+
+                password = PasswordHelper.HashPassword(password);
 
                 if (chkNewUser.Checked)
                 {
@@ -124,12 +127,9 @@ namespace Library_Otomation
                         new SqlParameter("username", username),
                         new SqlParameter("password", password),
                         new SqlParameter("email", email),
-                        new SqlParameter(
-                            "phone", phone),
-                        new SqlParameter(
-                            "role", role),
-                        new SqlParameter(
-                            "status", status)
+                        new SqlParameter("phone", phone),
+                        new SqlParameter("role", role),
+                        new SqlParameter("IsActive", IsActive)
                     };
                     db.ExecuteNonQuery("AddNewUser", parameters);
                 }
@@ -141,19 +141,15 @@ namespace Library_Otomation
                         new SqlParameter("username", username),
                         new SqlParameter("password", password),
                         new SqlParameter("email", email),
-                        new SqlParameter(
-                            "phone", phone),
-                        new SqlParameter(
-                            "role", role),
-                        new SqlParameter(
-                            "status", status)
+                        new SqlParameter("phone", phone),
+                        new SqlParameter("role", role),
+                        new SqlParameter("IsActive", IsActive)
                     };
                     db.ExecuteNonQuery("UpdateUser", parameters);
                 }
                 LoadUsers();
                 clearFields();
                 UpdateUIState();
-
             }
             catch (Exception ex)
             {
@@ -172,6 +168,7 @@ namespace Library_Otomation
                 }
 
                 string inputPassword = PromptForPassword();
+                inputPassword = PasswordHelper.HashPassword(inputPassword);
                 if (string.IsNullOrEmpty(inputPassword))
                 {
                     MessageBox.Show("Silme işlemi iptal edildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);

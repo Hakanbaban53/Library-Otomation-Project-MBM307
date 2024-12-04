@@ -15,9 +15,9 @@ namespace Library_Otomation
         public ReportsForm()
         {
             InitializeComponent();
-            cmbReportType.Items.Add("Most Borrowed Books");
-            cmbReportType.Items.Add("Active Members");
-            cmbReportType.Items.Add("Overdue Loans");
+            cmbReportType.Items.Add("En Çok Ödünç Alınan Kitaplar");
+            cmbReportType.Items.Add("Aktif Ödünçler");
+            cmbReportType.Items.Add("Süresi Dolan Ödünç Kitaplar");
             cmbReportType.SelectedIndex = 0; // Default selection
 
         }
@@ -38,17 +38,17 @@ namespace Library_Otomation
 
             switch (selectedReport)
             {
-                case "Most Borrowed Books":
+                case "En Çok Ödünç Alınan Kitaplar":
                     reportData = db.ExecuteQuery("SELECT * FROM MostBorrowedBooksView ORDER BY BorrowCount DESC", null, false);
                     break;
-                case "Active Members":
+                case "Aktif Ödünçler":
                     reportData = db.ExecuteQuery("SELECT * FROM ActiveMembersView ORDER BY ActiveLoans DESC", null, false);
                     break;
-                case "Overdue Loans":
+                case "Süresi Dolan Ödünç Kitaplar":
                     reportData = db.ExecuteQuery("SELECT * FROM ViewOverdueLoans", null, false);
                     break;
                 default:
-                    MessageBox.Show("Invalid report selection.");
+                    MessageBox.Show("Geçersiz Rapor seçimi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
             }
 
@@ -57,7 +57,7 @@ namespace Library_Otomation
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormHelper.NavigateBack();
         }
     }
 }

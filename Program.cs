@@ -16,7 +16,14 @@ namespace Library_Otomation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminHomeForm());
+
+            using (var loginForm = new LoginForm())
+            {
+                if (loginForm.ShowDialog() == DialogResult.OK)
+                {
+                    Application.Run(new MainForm("role", "username")); // Rol ve kullanıcı adı taşınır.
+                }
+            }
         }
     }
 }
