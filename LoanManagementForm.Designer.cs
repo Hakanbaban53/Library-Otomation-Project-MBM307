@@ -59,7 +59,6 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.btnReturnBook = new System.Windows.Forms.Button();
             this.btnRefreshTab2 = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -127,9 +126,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.Location = new System.Drawing.Point(81, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(413, 25);
+            this.label1.Size = new System.Drawing.Size(284, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Kitap Ödünç Alma ve Ayırtılan Kitaplar";
+            this.label1.Text = "Kitap Ödünç Alma ve İade";
             // 
             // btnBack
             // 
@@ -148,7 +147,6 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(4, 0);
             this.tabControl1.Name = "tabControl1";
@@ -482,16 +480,6 @@
             this.btnRefreshTab2.Text = "Yenile";
             this.btnRefreshTab2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(953, 380);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Ayırtılan Kitaplar";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // LoanManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -559,7 +547,6 @@
         private System.Windows.Forms.Button btnIssueLoan;
         private System.Windows.Forms.Button btnRefreshTab1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dataGridLoans;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox groupBox4;

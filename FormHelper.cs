@@ -6,21 +6,22 @@ namespace Library_Otomation
 {
     public static class FormHelper
     {
-        private static readonly Stack<Form> formStack = new Stack<Form>();
+        private static readonly Stack<Form> formStack = new Stack<Form>(); // Form geçmiþi için yýðýn
 
         // Form deðiþtiðinde tetiklenecek olay
         public static event Action<Form> OnFormChange;
 
         // Çýkýþ yapmak için metod
-        public static void Logout()
+        public static void Logout(Form currentForm)
         {
             DialogResult result = MessageBox.Show("Çýkýþ yapmak istediðinize emin misiniz?", "Çýkýþ Onayý", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                Properties.Settings.Default.Reset();
-                // Form geçmiþini temizle ve LoginForm'a yönlendir
-                ClearHistoryAndNavigate(new LoginForm());
+                Properties.Settings.Default.Reset(); // Ayarlarý sýfýrla
+                currentForm.Hide(); // Geçerli formu gizle
+                LoginForm loginForm = new LoginForm(); // LoginForm'u baþlat
+                loginForm.ShowDialog(); // LoginForm'u göster
             }
         }
 
@@ -45,12 +46,5 @@ namespace Library_Otomation
                 MessageBox.Show("Geri dönebileceðiniz bir form yok.");
             }
         }
-
-        // Geçmiþi temizle ve yeni bir form yönlendirmesi yap
-        public static void ClearHistoryAndNavigate(Form form)
-        {
-            formStack.Clear();  // Geçmiþi temizle
-            Navigate(form);  // Yeni formu yönlendir
-        }
     }
 }

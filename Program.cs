@@ -17,7 +17,7 @@ namespace Library_Otomation
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            using (var loginForm = new LoginForm())
+            using (var loginForm = new LoginForm()) // LoginForm'u başlat
             {
                 if (loginForm.ShowDialog() == DialogResult.OK)
                 {

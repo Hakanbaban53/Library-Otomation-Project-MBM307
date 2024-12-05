@@ -201,6 +201,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
             this.Controls.Add(this.mainPanel);
+            this.MinimumSize = new System.Drawing.Size(900, 500);
             this.Name = "AdminHomeForm";
             this.Text = "Yönetici Paneli Ana Sayfa";
             this.mainPanel.ResumeLayout(false);

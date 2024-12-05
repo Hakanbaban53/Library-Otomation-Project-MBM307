@@ -13,89 +13,101 @@ namespace Library_Otomation
 {
     public partial class MemberManagementForm : Form
     {
+        // Seçilen üye ID'si
         int selectedMemberID = -1;
+
+        // Formun yapıcı metodu
         public MemberManagementForm()
         {
-            InitializeComponent();
-            LoadMembers();
-            UpdateUIState();
+            InitializeComponent(); // Bileşenleri başlat
+            LoadMembers(); // Üyeleri yükle
+            UpdateUIState(); // UI durumunu güncelle
         }
 
+        // Alanları temizleme metodu
         private void clearFields()
         {
-            txtFirstName.Text = "";
-            txtLastName.Text = "";
-            dateBirthTime.Value = DateTime.Now;
-            txtAddress.Text = "";
-            txtPhone.Text = "";
-            txtEmail.Text = "";
+            txtFirstName.Text = ""; // Ad alanını temizle
+            txtLastName.Text = ""; // Soyad alanını temizle
+            dateBirthTime.Value = DateTime.Now; // Doğum tarihini güncel tarihe ayarla
+            txtAddress.Text = ""; // Adres alanını temizle
+            txtPhone.Text = ""; // Telefon alanını temizle
+            txtEmail.Text = ""; // E-posta alanını temizle
         }
 
+        // Üyeleri veritabanından yükleme metodu
         private void LoadMembers()
         {
-            // Load members from database
-            DatabaseHelper db = new DatabaseHelper();
-            DataTable dt = db.ExecuteQuery("SELECT * FROM Members", null, false);
-            dataGridMembers.DataSource = dt;
-            selectedMemberID = -1;
+            DatabaseHelper db = new DatabaseHelper(); // Veritabanı yardımcı nesnesi oluştur
+            DataTable dt = db.ExecuteQuery("SELECT * FROM Members", null, false); // Üyeleri sorgula
+            dataGridMembers.DataSource = dt; // Üyeleri veri ızgarasına ata
+            selectedMemberID = -1; // Seçilen üye ID'sini sıfırla
         }
 
+        // Geri butonuna tıklama olayı
         private void btnBack_Click(object sender, EventArgs e)
         {
-            FormHelper.NavigateBack();
+            FormHelper.NavigateBack(); // Geri git
         }
+
+        // Alanların kontrolü için metot
         private void checkFields()
         {
+            // Alanların boş olup olmadığını kontrol et
             if (string.IsNullOrWhiteSpace(txtFirstName.Text) || string.IsNullOrWhiteSpace(txtLastName.Text) ||
                 string.IsNullOrWhiteSpace(txtAddress.Text) || string.IsNullOrWhiteSpace(txtPhone.Text) ||
                 string.IsNullOrWhiteSpace(txtEmail.Text))
             {
-                throw new Exception("Tüm alanlar doldurulmalıdır.");
+                throw new Exception("Tüm alanlar doldurulmalıdır."); // Hata fırlat
             }
 
+            // Telefon numarasının geçerliliğini kontrol et
             if (!System.Text.RegularExpressions.Regex.IsMatch(txtPhone.Text, @"^\d{10}$"))
             {
-                throw new Exception("Geçerli bir telefon numararı giriniz (10 Haneli telefon numaranızı başında '0' olmadan girin.).");
+                throw new Exception("Geçerli bir telefon numararı giriniz (10 Haneli telefon numaranızı başında '0' olmadan girin.)."); // Hata fırlat
             }
 
+            // E-posta adresinin geçerliliğini kontrol et
             if (!System.Text.RegularExpressions.Regex.IsMatch(txtEmail.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
-                throw new Exception("Geçerli bir e-posta adresi giriniz.");
+                throw new Exception("Geçerli bir e-posta adresi giriniz."); // Hata fırlat
             }
         }
 
+        // Veri ızgarasında hücreye tıklama olayı
         private void dataGridMembers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0) // Geçerli bir satır seçildiyse
             {
-                DataGridViewRow row = dataGridMembers.Rows[e.RowIndex];
-                selectedMemberID = (int)row.Cells["MemberID"].Value;
-                txtFirstName.Text = row.Cells["FirstName"].Value.ToString();
-                txtLastName.Text = row.Cells["LastName"].Value.ToString();
-                dateBirthTime.Value = (DateTime)row.Cells["DateOfBirth"].Value;
-                txtAddress.Text = row.Cells["Address"].Value.ToString();
-                txtPhone.Text = row.Cells["Phone"].Value.ToString();
-                txtEmail.Text = row.Cells["Email"].Value.ToString();
+                DataGridViewRow row = dataGridMembers.Rows[e.RowIndex]; // Seçilen satırı al
+                selectedMemberID = (int)row.Cells["MemberID"].Value; // Üye ID'sini al
+                txtFirstName.Text = row.Cells["FirstName"].Value.ToString(); // Adı al
+                txtLastName.Text = row.Cells["LastName"].Value.ToString(); // Soyadı al
+                dateBirthTime.Value = (DateTime)row.Cells["DateOfBirth"].Value; // Doğum tarihini al
+                txtAddress.Text = row.Cells["Address"].Value.ToString(); // Adresi al
+                txtPhone.Text = row.Cells["Phone"].Value.ToString(); // Telefonu al
+                txtEmail.Text = row.Cells["Email"].Value.ToString(); // E-posta adresini al
             }
-            UpdateUIState();
-
+            UpdateUIState(); // UI durumunu güncelle
         }
 
+        // Kaydet butonuna tıklama olayı
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                checkFields();
-                String firstName = txtFirstName.Text;
-                String lastName = txtLastName.Text;
-                DateTime dateOfBirth = dateBirthTime.Value;
-                String address = txtAddress.Text;
-                String phone = txtPhone.Text;
-                String email = txtEmail.Text;
+                checkFields(); // Alanları kontrol et
+                String firstName = txtFirstName.Text; // Adı al
+                String lastName = txtLastName.Text; // Soyadı al
+                DateTime dateOfBirth = dateBirthTime.Value; // Doğum tarihini al
+                String address = txtAddress.Text; // Adresi al
+                String phone = txtPhone.Text; // Telefonu al
+                String email = txtEmail.Text; // E-posta adresini al
 
-                DatabaseHelper db = new DatabaseHelper();
-                SqlParameter[] parameters;
+                DatabaseHelper db = new DatabaseHelper(); // Veritabanı yardımcı nesnesi oluştur
+                SqlParameter[] parameters; // SQL parametreleri
 
+                // Yeni üye kaydı
                 if (chkNewMember.Checked)
                 {
                     parameters = new SqlParameter[]
@@ -107,11 +119,12 @@ namespace Library_Otomation
                             new SqlParameter("@Phone", phone),
                             new SqlParameter("@Email", email)
                     };
-                    db.ExecuteNonQuery("RegisterNewMember", parameters);
+                    db.ExecuteNonQuery("RegisterNewMember", parameters); // Yeni üye kaydet
                 }
+                // Üye güncelleme
                 else if (chkUpdateMember.Checked)
                 {
-                    int memberId = selectedMemberID;
+                    int memberId = selectedMemberID; // Seçilen üye ID'sini al
                     parameters = new SqlParameter[]
                     {
                             new SqlParameter("@MemberID", memberId),
@@ -122,99 +135,104 @@ namespace Library_Otomation
                             new SqlParameter("@Phone", phone),
                             new SqlParameter("@Email", email)
                     };
-                    db.ExecuteNonQuery("UpdateMember", parameters);
+                    db.ExecuteNonQuery("UpdateMember", parameters); // Üyeyi güncelle
                 }
 
-                LoadMembers();
-                clearFields();
+                LoadMembers(); // Üyeleri yeniden yükle
+                clearFields(); // Alanları temizle
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); // Hata mesajı göster
             }
         }
 
+        // Yeni üye onay kutusunun durumunu değiştirme olayı
         private void chkNewMember_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkNewMember.Checked)
+            if (chkNewMember.Checked) // Yeni üye onay kutusu işaretlendiyse
             {
-                chkUpdateMember.Checked = false;
-                dataGridMembers.ClearSelection();
-                selectedMemberID = -1;
-                clearFields();
+                chkUpdateMember.Checked = false; // Güncelleme onay kutusunu temizle
+                dataGridMembers.ClearSelection(); // Veri ızgarasındaki seçimi temizle
+                selectedMemberID = -1; // Seçilen üye ID'sini sıfırla
+                clearFields(); // Alanları temizle
             }
-            UpdateUIState();
+            UpdateUIState(); // UI durumunu güncelle
         }
 
+        // Güncelleme onay kutusunun durumunu değiştirme olayı
         private void chkUpdateMember_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkUpdateMember.Checked)
+            if (chkUpdateMember.Checked) // Güncelleme onay kutusu işaretlendiyse
             {
-                chkNewMember.Checked = false;
+                chkNewMember.Checked = false; // Yeni üye onay kutusunu temizle
             }
-            UpdateUIState();
+            UpdateUIState(); // UI durumunu güncelle
         }
 
+        // UI durumunu güncelleme metodu
         private void UpdateUIState()
         {
+            // Alanları etkinleştir veya devre dışı bırak
             bool enableFields = chkNewMember.Checked || (chkUpdateMember.Checked && selectedMemberID != -1);
-            txtFirstName.Enabled = enableFields;
-            txtLastName.Enabled = enableFields;
-            dateBirthTime.Enabled = enableFields;
-            txtAddress.Enabled = enableFields;
-            txtPhone.Enabled = enableFields;
-            txtEmail.Enabled = enableFields;
-            btnSave.Enabled = enableFields;
+            txtFirstName.Enabled = enableFields; // Ad alanını etkinleştir
+            txtLastName.Enabled = enableFields; // Soyad alanını etkinleştir
+            dateBirthTime.Enabled = enableFields; // Doğum tarihini etkinleştir
+            txtAddress.Enabled = enableFields; // Adres alanını etkinleştir
+            txtPhone.Enabled = enableFields; // Telefon alanını etkinleştir
+            txtEmail.Enabled = enableFields; // E-posta alanını etkinleştir
+            btnSave.Enabled = enableFields; // Kaydet butonunu etkinleştir
         }
 
+        // Temizle butonuna tıklama olayı
         private void btnClear_Click(object sender, EventArgs e)
         {
             try
             {
-                clearFields();
-                chkNewMember.Checked = false;
-                chkUpdateMember.Checked = false;
-                selectedMemberID = -1;
-                UpdateUIState();
+                clearFields(); // Alanları temizle
+                chkNewMember.Checked = false; // Yeni üye onay kutusunu temizle
+                chkUpdateMember.Checked = false; // Güncelleme onay kutusunu temizle
+                selectedMemberID = -1; // Seçilen üye ID'sini sıfırla
+                UpdateUIState(); // UI durumunu güncelle
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); // Hata mesajı göster
             }
         }
 
+        // Üye silme butonuna tıklama olayı
         private void btnDeleteMember_Click(object sender, EventArgs e)
         {
             try
             {
-                if (selectedMemberID == -1)
+                if (selectedMemberID == -1) // Eğer üye seçilmemişse
                 {
-                    throw new Exception("Lütfen silmek istediğiniz üyeyi seçin.");
+                    throw new Exception("Lütfen silmek istediğiniz üyeyi seçin."); // Hata fırlat
                 }
 
-                int memberId = selectedMemberID;
-                string memberName = txtFirstName.Text + " " +
-                                    txtLastName.Text;
+                int memberId = selectedMemberID; // Seçilen üye ID'sini al
+                string memberName = txtFirstName.Text + " " + txtLastName.Text; // Üye adını al
 
+                // Silme onayı için diyalog kutusu göster
                 DialogResult dialogResult = MessageBox.Show($"{memberName} adlı üyeyi gerçekten silmek istiyor musunuz?", "Üye Silme", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Yes)
+                if (dialogResult == DialogResult.Yes) // Eğer kullanıcı evet derse
                 {
-                    DatabaseHelper db = new DatabaseHelper();
-                    SqlParameter[] parameters = new SqlParameter[]
+                    DatabaseHelper db = new DatabaseHelper(); // Veritabanı yardımcı nesnesi oluştur
+                    SqlParameter[] parameters = new SqlParameter[] // SQL parametreleri
                     {
-                            new SqlParameter("@MemberID", memberId)
+                            new SqlParameter("@MemberID", memberId) // Üye ID'sini parametre olarak ekle
                     };
 
-                    db.ExecuteNonQuery("DeleteMember", parameters);
-                    LoadMembers();
-                    clearFields();
+                    db.ExecuteNonQuery("DeleteMember", parameters); // Üyeyi sil
+                    LoadMembers(); // Üyeleri yeniden yükle
+                    clearFields(); // Alanları temizle
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); // Hata mesajı göster
             }
         }
-
     }
 }

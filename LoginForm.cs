@@ -14,45 +14,54 @@ namespace Library_Otomation
 {
     public partial class LoginForm : Form
     {
+        // Yapıcı metod
         public LoginForm()
         {
-            InitializeComponent();
+            InitializeComponent(); // Form bileşenlerini başlat
+                                   // "Beni Hatırla" seçeneği kontrolü
             if (Properties.Settings.Default.RememberMe)
             {
-                txtUsername.Text = Properties.Settings.Default.Username;
-                txtPassword.Text = Properties.Settings.Default.Password;
-                chkRememberMe.Checked = true;
+                txtUsername.Text = Properties.Settings.Default.Username; // Kullanıcı adını getir
+                txtPassword.Text = Properties.Settings.Default.Password; // Parolayı getir
+                chkRememberMe.Checked = true; // "Beni Hatırla" seçeneğini işaretle
             }
         }
 
+        // Giriş butonuna tıklama olayı
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text.Trim();
+            string username = txtUsername.Text.Trim(); // Kullanıcı adını al
+            string password = txtPassword.Text.Trim(); // Parolayı al
 
+            // Kullanıcı adı veya parola boşsa hata mesajı göster
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                lblError.Text = "Kullanıcı Adı veya Parola gerekli.";
-                lblError.ForeColor = Color.Red;
-                return;
+                lblError.Text = "Kullanıcı Adı ve Parola gerekli."; // Hata mesajı
+                lblError.ForeColor = Color.Red; // Hata mesajı rengi
+                return; // Metodu sonlandır
             }
 
             try
             {
+                // Parolayı hashle
                 string hashedPassword = PasswordHelper.HashPassword(password);
-                DatabaseHelper db = new DatabaseHelper();
+                DatabaseHelper db = new DatabaseHelper(); // DatabaseHelper sınıfından nesne oluştur
+                                                          // Parametreleri tanımla
                 SqlParameter[] parameters = {
-                    new SqlParameter("@Username", username),
-                    new SqlParameter("@Password", hashedPassword)
-                };
+                        new SqlParameter("@Username", username),
+                        new SqlParameter("@Password", hashedPassword)
+                    };
 
+                // Kullanıcıyı doğrula
                 DataTable result = db.ExecuteQuery("AuthenticateUser", parameters, true);
 
+                // Kullanıcı doğrulama sonucu kontrolü
                 if (result.Rows.Count > 0)
                 {
-                    string role = result.Rows[0]["Role"].ToString();
-                    bool isActive = Convert.ToBoolean(result.Rows[0]["IsActive"]);
+                    string role = result.Rows[0]["Role"].ToString(); // Kullanıcı rolü
+                    bool isActive = Convert.ToBoolean(result.Rows[0]["IsActive"]); // Kullanıcı aktif mi
 
+                    // Kullanıcı aktif değilse hata mesajı göster
                     if (!isActive)
                     {
                         lblError.Text = "Hesabınız devre dışı. Lütfen yöneticiyle iletişime geçin.";
@@ -60,36 +69,35 @@ namespace Library_Otomation
                         return;
                     }
 
+                    // "Beni Hatırla" seçeneği kontrolü
                     if (chkRememberMe.Checked)
                     {
-                        Properties.Settings.Default.Username = username;
-                        Properties.Settings.Default.Password = password;
-                        Properties.Settings.Default.RememberMe = true;
-                        Properties.Settings.Default.Save();
+                        Properties.Settings.Default.Username = username; // Kullanıcı adını kaydet
+                        Properties.Settings.Default.Password = password; // Parolayı kaydet
+                        Properties.Settings.Default.RememberMe = true; // "Beni Hatırla" seçeneğini işaretle
+                        Properties.Settings.Default.Save(); // Ayarları kaydet
                     }
                     else
                     {
-                        Properties.Settings.Default.Reset();
+                        Properties.Settings.Default.Reset(); // Ayarları sıfırla
                     }
 
-                    this.Hide();
-                    // Giriş başarılı olduğunda MainForm'a geçiş
+                    this.Hide(); // Mevcut formu gizle
+                                 // Giriş başarılı olduğunda MainForm'a geçiş
                     MainForm mainForm = new MainForm(role, username);
-                    mainForm.ShowDialog();
-                    this.Show();
+                    mainForm.ShowDialog(); // MainForm'u göster
                 }
                 else
                 {
-                    lblError.Text = "Kullanıcı Adı veya Parola yanlış.";
-                    lblError.ForeColor = Color.Red;
+                    lblError.Text = "Kullanıcı Adı veya Parola yanlış."; // Hata mesajı
+                    lblError.ForeColor = Color.Red; // Hata mesajı rengi
                 }
             }
             catch (Exception ex)
             {
+                // Hata durumunda mesaj kutusu göster
                 MessageBox.Show($"Bir Sorun Oluştu: {ex.Message}", "Hata");
             }
         }
-
-
     }
 }
