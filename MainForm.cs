@@ -38,6 +38,12 @@ namespace Library_Otomation
         // Panel üzerine form gösterimi
         private void ShowFormInPanel(Form form)
         {
+            if (mainPanel.InvokeRequired)
+            {
+                mainPanel.Invoke(new Action(() => ShowFormInPanel(form)));
+                return;
+            }
+
             mainPanel.Controls.Clear();  // Önceki formu temizle
 
             form.TopLevel = false;  // Alt form
@@ -48,7 +54,7 @@ namespace Library_Otomation
             mainPanel.Controls.Add(form);  // Panel'e formu ekle
             form.BringToFront();  // Formu en öne getir
             form.Show();  // Formu göster
-        }
+        }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {

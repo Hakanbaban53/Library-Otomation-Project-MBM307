@@ -224,7 +224,7 @@ namespace Library_Otomation
                             new SqlParameter("@MemberID", memberId) // Üye ID'sini parametre olarak ekle
                     };
 
-                    db.ExecuteNonQuery("DeleteMember", parameters); // Üyeyi sil
+                    db.ExecuteNonQuery("CheckMemberBeforeDelete", parameters); // Üyeyi sil
                     LoadMembers(); // Üyeleri yeniden yükle
                     clearFields(); // Alanları temizle
                 }

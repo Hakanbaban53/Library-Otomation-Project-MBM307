@@ -100,7 +100,7 @@
             this.dataGridUsers.ReadOnly = true;
             this.dataGridUsers.Size = new System.Drawing.Size(876, 242);
             this.dataGridUsers.TabIndex = 8;
-            this.dataGridUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridUsers_CellContentClick);
+            this.dataGridUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridUsers_CellClick);
             // 
             // tableLayoutPanel1
             // 

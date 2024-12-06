@@ -38,11 +38,6 @@ namespace Library_Otomation
             DataTable categories = db.ExecuteQuery("SELECT * FROM BookCategory", null, false);
             cmbCategory.DataSource = categories;
 
-            DataRow editRow = categories.NewRow();
-            editRow["CategoryID"] = -1;
-            editRow["CategoryName"] = "Kategorileri Düzenle";
-            categories.Rows.InsertAt(editRow, 0);
-
             cmbCategory.DisplayMember = "CategoryName";
             cmbCategory.ValueMember = "CategoryID";
         }
@@ -85,9 +80,10 @@ namespace Library_Otomation
             {
                 throw new Exception("Geçerli bir yayın yılı giriniz (4 haneli).");
             }
-            if (!System.Text.RegularExpressions.Regex.IsMatch(txtISBN.Text, @"^(978|979)-\d{1,5}-\d{1,7}-\d{1,7}-\d{1}$"))
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtISBN.Text, @"^(978|979)-\d{1,5}-\d{1,7}-\d{1,7}-\d{1}$") && !System.Text.RegularExpressions.Regex.IsMatch(txtISBN.Text, @"^\d{13}$")
+                && !System.Text.RegularExpressions.Regex.IsMatch(txtISBN.Text, @"^(978|979)-\d{10}$"))
             {
-                throw new Exception("Geçerli bir ISBN numarası giriniz (978 veya 979 ile başlamalıdır ve 13 haneli olmalıdır).");
+                throw new Exception("Geçerli bir ISBN numarası giriniz (978 veya 979 ile başlamalıdır ve 13 haneli olmalıdır. Örnek: 978-3-16-148410-0 veya 9780316769488)");
             }
         }
 
@@ -177,7 +173,7 @@ namespace Library_Otomation
                     {
                             new SqlParameter("@BookID", bookID)
                     };
-                    db.ExecuteNonQuery("DeleteBook", parameters);
+                    db.ExecuteNonQuery("CheckBookBeforeDelete", parameters);
                     LoadBooks();
                     clearFields();
                     UpdateUIState();
@@ -328,10 +324,8 @@ namespace Library_Otomation
                     }
                 };
 
-
                 bookCategoryManagementForm.ShowDialog();
             }
         }
-
     }
 }

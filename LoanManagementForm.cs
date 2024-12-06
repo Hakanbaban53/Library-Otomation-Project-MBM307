@@ -13,17 +13,50 @@ namespace Library_Otomation
 {
     public partial class LoanManagementForm : Form
     { 
-        int LoanID = -1;
+        private int LoanID = -1;
+        private int LoanLimit;
+        private int FinePerDay; 
         public LoanManagementForm()
         {
             InitializeComponent();
             refreshTables();
+            LoanLimit = GetLoanLimit();
+            FinePerDay = GetFinePerDay();
         }
         private void refreshTables()
         {
             LoadBooks();
             LoadLoans();
             LoadUsers();
+        }
+        private int GetLoanLimit()
+        {
+            try
+            {
+                DatabaseHelper db = new DatabaseHelper();
+                DataTable result = db.ExecuteQuery("SELECT SettingValue FROM Settings WHERE SettingKey = 'LoanLimit'", null, false);
+                return int.Parse(result.Rows[0]["SettingValue"].ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Hata: Ödünç Limiti", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+        }
+
+        private int GetFinePerDay()
+        {
+            try
+            {
+                DatabaseHelper db = new DatabaseHelper();
+                DataTable result = db.ExecuteQuery("SELECT SettingValue FROM Settings WHERE SettingKey = 'FinePerDay'", null, false);
+                return int.Parse(result.Rows[0]["SettingValue"].ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Hata: Gecikme Ücreti", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
         }
 
         private void LoadUsers()
@@ -43,7 +76,7 @@ namespace Library_Otomation
         private void LoadLoans()
         {
             DatabaseHelper db = new DatabaseHelper();
-            DataTable loans = db.ExecuteQuery("SELECT l.LoanID, l.BookID, b.Title, l.MemberID, m.FirstName + ' ' + m.LastName AS MemberName, l.LoanDate, l.DueDate FROM Loans l JOIN Books b ON l.BookID = b.BookID JOIN Members m ON l.MemberID = m.MemberID WHERE l.ReturnDate IS NULL", null, false);
+            DataTable loans = db.ExecuteQuery("SELECT * FROM ViewActiveLoans", null, false);
             dataGridLoans.DataSource = loans;
         }
 
@@ -53,6 +86,16 @@ namespace Library_Otomation
             SqlParameter[] parameters = { new SqlParameter("@BookID", bookID) };
             DataTable result = db.ExecuteQuery("SELECT dbo.IsBookAvailable(@BookID) AS IsAvailable", parameters, false);
             return Convert.ToBoolean(result.Rows[0]["IsAvailable"]);
+        }
+
+
+        private bool CanBorrowMoreBooks(int memberID)
+        {
+            DatabaseHelper db = new DatabaseHelper();
+            SqlParameter[] parameters = { new SqlParameter("@MemberID", memberID) };
+            DataTable result = db.ExecuteQuery("SELECT dbo.GetActiveLoanCount(@MemberID) AS ActiveLoans", parameters, false);
+            int activeLoans = Convert.ToInt32(result.Rows[0]["ActiveLoans"]);
+            return activeLoans < LoanLimit;
         }
 
         private bool IsLoanValid(int loanID)
@@ -108,29 +151,36 @@ namespace Library_Otomation
                     return;
                 }
 
+                if (!CanBorrowMoreBooks(memberID))
+                {
+                    MessageBox.Show($"Bu üye zaten maksimum ödünç limiti olan {LoanLimit} kitap aldı.", "Limit Aşıldı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 DatabaseHelper db = new DatabaseHelper();
                 SqlParameter[] parameters = {
-                    new SqlParameter("@BookID", bookID),
-                    new SqlParameter("@MemberID", memberID),
-                    new SqlParameter("@LoanDate", loanDate),
-                    new SqlParameter("@DueDate", dueDate)
-                };
+            new SqlParameter("@BookID", bookID),
+            new SqlParameter("@MemberID", memberID),
+            new SqlParameter("@LoanDate", loanDate),
+            new SqlParameter("@DueDate", dueDate)
+        };
 
                 db.ExecuteNonQuery("LoanBook", parameters);
-                MessageBox.Show("Kitap başarılı bir şeklide ödünç verildi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Kitap başarılı bir şekilde ödünç verildi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtBookID.Clear();
                 txtMemberID.Clear();
                 refreshTables();
             }
             catch (FormatException)
             {
-                MessageBox.Show("Lütfen geçerli bir Book ID ve Member ID giriniz", "Format Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lütfen geçerli bir Book ID ve Member ID giriniz.", "Format Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata3", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         private void dataGridLoans_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -160,9 +210,10 @@ namespace Library_Otomation
 
                 DatabaseHelper db = new DatabaseHelper();
                 SqlParameter[] parameters = {
-            new SqlParameter("@LoanID", LoanID),
-            new SqlParameter("@ReturnDate", returnDate)
-        };
+                    new SqlParameter("@LoanID", LoanID),
+                    new SqlParameter("@ReturnDate", returnDate),
+                    new SqlParameter("@FinePerDay", FinePerDay)
+                };
 
                 db.ExecuteNonQuery("ReturnBook", parameters);
                 MessageBox.Show("Kitap başarılı bir şekilde iade edildi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -174,7 +225,7 @@ namespace Library_Otomation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata");
+                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata4", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

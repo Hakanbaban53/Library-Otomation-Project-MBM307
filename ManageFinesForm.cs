@@ -55,7 +55,9 @@ namespace Library_Otomation
             {
                 int memberID = Convert.ToInt32(dataGridFines.Rows[e.RowIndex].Cells["MemberID"].Value); // Üye ID'sini al
                 MemberID = memberID; // Üye ID'sini güncelle
-                lblTotalFines.Text = $"Total Fines: {dataGridFines.Rows[e.RowIndex].Cells["TotalFines"].FormattedValue}"; // Toplam cezayı göster
+                txtLoanID.Text = dataGridFines.Rows[e.RowIndex].Cells["LoanIDs"].FormattedValue.ToString(); // Ödünç ID'lerini göster
+                txtMemberName.Text = dataGridFines.Rows[e.RowIndex].Cells["MemberName"].FormattedValue.ToString(); // Üye adını göster
+                lblTotalFines.Text = $"Toplam Borç: {dataGridFines.Rows[e.RowIndex].Cells["TotalFines"].FormattedValue}"; // Toplam cezayı göster
                 btnPayFine.Enabled = memberID > 0; // Butonu etkinleştir
             }
         }
@@ -67,15 +69,13 @@ namespace Library_Otomation
             {
                 if (MemberID == -1) // Eğer üye seçilmemişse
                 {
-                    MessageBox.Show("Please select a user to pay the fine.", "Error"); // Hata mesajı göster
-                    return; // Metodu sonlandır
+                    throw new Exception("Lütfen bir üye seçin!"); // Hata mesajı göster
                 }
 
                 // Kullanıcının aktif ödünçleri olup olmadığını kontrol et
                 if (HasActiveLoans(MemberID))
                 {
-                    MessageBox.Show("This user has active loans. Fines can only be paid once all loans are returned.", "Error"); // Hata mesajı göster
-                    return; // Metodu sonlandır
+                    throw new Exception("Seçili üyenin aktif ödünçleri var. Lütfen önce ödünçleri iade edin!"); // Hata mesajı göster
                 }
 
                 DatabaseHelper db = new DatabaseHelper(); // Veritabanı yardımcı sınıfı
@@ -84,7 +84,7 @@ namespace Library_Otomation
                 // Üye için tüm cezaları ödeyen prosedürü çalıştır
                 db.ExecuteNonQuery("EXEC PayAllFinesForMember @MemberID", parameters, false);
 
-                MessageBox.Show("All fines for the selected user have been paid!"); // Başarı mesajı göster
+                MessageBox.Show("Üyenin tüm cezaları ödendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information); // Başarılı mesajı göster
                 LoadMembersWithLoansAndFines(); // Üyeleri ve cezaları yeniden yükle
                 btnPayFine.Enabled = false; // Butonu devre dışı bırak
                 MemberID = -1; // Üye ID'sini sıfırla

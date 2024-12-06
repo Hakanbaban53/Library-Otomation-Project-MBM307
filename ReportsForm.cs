@@ -57,10 +57,17 @@ namespace Library_Otomation
 
         private void GetAuditLogs()
         {
-            DatabaseHelper db = new DatabaseHelper(); // Veritabanı yardımcı sınıfı
-            DataTable logs = db.ExecuteQuery("SELECT * FROM AuditLog", null, false); // Tüm logları al
-            dataGridLogs.DataSource = logs; // Logları datagrid'e ata
+            try
+            {
+                DatabaseHelper db = new DatabaseHelper(); // Veritabanı yardımcı sınıfı
+                DataTable logs = db.ExecuteQuery("SELECT * FROM AuditLogs", null, false); // Tüm logları al
+                dataGridLogs.DataSource = logs; // Logları datagrid'e ata
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Audit Loglar alınırken bir hata oluştu. Hata: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         // Logları yenile butonuna tıklama olayı
         private void btnRefreshLogs_Click(object sender, EventArgs e)

@@ -139,6 +139,7 @@
             this.txtLoanID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtLoanID.Location = new System.Drawing.Point(3, 22);
             this.txtLoanID.Name = "txtLoanID";
+            this.txtLoanID.ReadOnly = true;
             this.txtLoanID.Size = new System.Drawing.Size(280, 29);
             this.txtLoanID.TabIndex = 0;
             // 
@@ -160,6 +161,7 @@
             this.txtMemberName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtMemberName.Location = new System.Drawing.Point(3, 22);
             this.txtMemberName.Name = "txtMemberName";
+            this.txtMemberName.ReadOnly = true;
             this.txtMemberName.Size = new System.Drawing.Size(280, 29);
             this.txtMemberName.TabIndex = 0;
             // 
