@@ -57,126 +57,126 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminHomeForm.cs">
+    <Compile Include="Forms\AdminHomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminHomeForm.Designer.cs">
+    <Compile Include="Forms\AdminHomeForm.Designer.cs">
       <DependentUpon>AdminHomeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BookManagementForm.cs">
+    <Compile Include="Forms\BookManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BookManagementForm.Designer.cs">
+    <Compile Include="Forms\BookManagementForm.Designer.cs">
       <DependentUpon>BookManagementForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseHelper.cs" />
-    <Compile Include="FormHelper.cs" />
-    <Compile Include="LibrarianHomeForm.cs">
+    <Compile Include="GlobalClasses\DatabaseHelper.cs" />
+    <Compile Include="GlobalClasses\FormHelper.cs" />
+    <Compile Include="Forms\LibrarianHomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LibrarianHomeForm.Designer.cs">
+    <Compile Include="Forms\LibrarianHomeForm.Designer.cs">
       <DependentUpon>LibrarianHomeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoanManagementForm.cs">
+    <Compile Include="Forms\LoanManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoanManagementForm.Designer.cs">
+    <Compile Include="Forms\LoanManagementForm.Designer.cs">
       <DependentUpon>LoanManagementForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageAccountForm.cs">
+    <Compile Include="Forms\ManageAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManageAccountForm.Designer.cs">
+    <Compile Include="Forms\ManageAccountForm.Designer.cs">
       <DependentUpon>ManageAccountForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageFinesForm.cs">
+    <Compile Include="Forms\ManageFinesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManageFinesForm.Designer.cs">
+    <Compile Include="Forms\ManageFinesForm.Designer.cs">
       <DependentUpon>ManageFinesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MemberManagementForm.cs">
+    <Compile Include="Forms\MemberManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MemberManagementForm.Designer.cs">
+    <Compile Include="Forms\MemberManagementForm.Designer.cs">
       <DependentUpon>MemberManagementForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PasswordHelper.cs" />
-    <Compile Include="ProgressDialog.cs">
+    <Compile Include="GlobalClasses\PasswordHelper.cs" />
+    <Compile Include="Modals\ProgressDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProgressDialog.Designer.cs">
+    <Compile Include="Modals\ProgressDialog.Designer.cs">
       <DependentUpon>ProgressDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportsForm.cs">
+    <Compile Include="Forms\ReportsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportsForm.Designer.cs">
+    <Compile Include="Forms\ReportsForm.Designer.cs">
       <DependentUpon>ReportsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SystemMaintenanceForm.cs">
+    <Compile Include="Forms\SystemMaintenanceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SystemMaintenanceForm.Designer.cs">
+    <Compile Include="Forms\SystemMaintenanceForm.Designer.cs">
       <DependentUpon>SystemMaintenanceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserManagementForm.cs">
+    <Compile Include="Forms\UserManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserManagementForm.Designer.cs">
+    <Compile Include="Forms\UserManagementForm.Designer.cs">
       <DependentUpon>UserManagementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AdminHomeForm.resx">
+    <EmbeddedResource Include="Forms\AdminHomeForm.resx">
       <DependentUpon>AdminHomeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BookManagementForm.resx">
+    <EmbeddedResource Include="Forms\BookManagementForm.resx">
       <DependentUpon>BookManagementForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LibrarianHomeForm.resx">
+    <EmbeddedResource Include="Forms\LibrarianHomeForm.resx">
       <DependentUpon>LibrarianHomeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoanManagementForm.resx">
+    <EmbeddedResource Include="Forms\LoanManagementForm.resx">
       <DependentUpon>LoanManagementForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManageAccountForm.resx">
+    <EmbeddedResource Include="Forms\ManageAccountForm.resx">
       <DependentUpon>ManageAccountForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManageFinesForm.resx">
+    <EmbeddedResource Include="Forms\ManageFinesForm.resx">
       <DependentUpon>ManageFinesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MemberManagementForm.resx">
+    <EmbeddedResource Include="Forms\MemberManagementForm.resx">
       <DependentUpon>MemberManagementForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProgressDialog.resx">
+    <EmbeddedResource Include="Modals\ProgressDialog.resx">
       <DependentUpon>ProgressDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportsForm.resx">
+    <EmbeddedResource Include="Forms\ReportsForm.resx">
       <DependentUpon>ReportsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SystemMaintenanceForm.resx">
+    <EmbeddedResource Include="Forms\SystemMaintenanceForm.resx">
       <DependentUpon>SystemMaintenanceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserManagementForm.resx">
+    <EmbeddedResource Include="Forms\UserManagementForm.resx">
       <DependentUpon>UserManagementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
