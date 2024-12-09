@@ -91,6 +91,8 @@
             // 
             // dataGridMembers
             // 
+            this.dataGridMembers.AllowUserToAddRows = false;
+            this.dataGridMembers.AllowUserToDeleteRows = false;
             this.dataGridMembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridMembers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridMembers.Location = new System.Drawing.Point(0, 124);

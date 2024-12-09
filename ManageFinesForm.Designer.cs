@@ -34,7 +34,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtLoanID = new System.Windows.Forms.TextBox();
+            this.txtMemberID = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtMemberName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -133,15 +133,15 @@
             this.panel2.Size = new System.Drawing.Size(876, 38);
             this.panel2.TabIndex = 6;
             // 
-            // txtLoanID
+            // txtMemberID
             // 
-            this.txtLoanID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLoanID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtLoanID.Location = new System.Drawing.Point(3, 22);
-            this.txtLoanID.Name = "txtLoanID";
-            this.txtLoanID.ReadOnly = true;
-            this.txtLoanID.Size = new System.Drawing.Size(280, 29);
-            this.txtLoanID.TabIndex = 0;
+            this.txtMemberID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMemberID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtMemberID.Location = new System.Drawing.Point(3, 22);
+            this.txtMemberID.Name = "txtMemberID";
+            this.txtMemberID.ReadOnly = true;
+            this.txtMemberID.Size = new System.Drawing.Size(280, 29);
+            this.txtMemberID.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -167,7 +167,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtLoanID);
+            this.groupBox1.Controls.Add(this.txtMemberID);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
@@ -175,7 +175,7 @@
             this.groupBox1.Size = new System.Drawing.Size(286, 56);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ödünç ID";
+            this.groupBox1.Text = "Üye ID";
             // 
             // tableLayoutPanel1
             // 
@@ -285,7 +285,7 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtLoanID;
+        private System.Windows.Forms.TextBox txtMemberID;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtMemberName;
         private System.Windows.Forms.GroupBox groupBox1;

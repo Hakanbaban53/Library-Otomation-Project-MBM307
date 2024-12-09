@@ -197,10 +197,13 @@
             // 
             // dataGridReports
             // 
+            this.dataGridReports.AllowUserToAddRows = false;
+            this.dataGridReports.AllowUserToDeleteRows = false;
             this.dataGridReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridReports.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridReports.Location = new System.Drawing.Point(0, 0);
             this.dataGridReports.Name = "dataGridReports";
+            this.dataGridReports.ReadOnly = true;
             this.dataGridReports.Size = new System.Drawing.Size(862, 375);
             this.dataGridReports.TabIndex = 1;
             // 
@@ -227,10 +230,13 @@
             // 
             // dataGridLogs
             // 
+            this.dataGridLogs.AllowUserToAddRows = false;
+            this.dataGridLogs.AllowUserToDeleteRows = false;
             this.dataGridLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridLogs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridLogs.Location = new System.Drawing.Point(0, 0);
             this.dataGridLogs.Name = "dataGridLogs";
+            this.dataGridLogs.ReadOnly = true;
             this.dataGridLogs.Size = new System.Drawing.Size(862, 325);
             this.dataGridLogs.TabIndex = 5;
             // 
